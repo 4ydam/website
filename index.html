@@ -5,6 +5,12 @@
 		<title>4ydam (Home Page)</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<script>
+			if (window.location.pathname.endsWith('/index.html')) {
+				const cleanPath = window.location.pathname.slice(0, -'index.html'.length) || '/';
+				window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+			}
+		</script>
 		<link rel="icon" type="image/png" href="images/logo-WhiteOnBlack.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -18,7 +24,7 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<a href="./" class="logo">
 									<span class="symbol"><img src="images/logo.png" alt="" /></span>
 								</a>
 								<h1 class="site-title">Game Developer &amp; Asset Creator</h1>
@@ -79,7 +85,7 @@
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<p class="footer-links"><a href="index.html">Home</a><span>|</span><a href="generic.html">Games</a><span>|</span><a href="assets.html">Assets</a></p>
+								<p class="footer-links"><a href="./">Home</a><span>|</span><a href="generic.html">Games</a><span>|</span><a href="assets.html">Assets</a></p>
 	
 							</section>
 							<ul class="copyright">
