@@ -2892,6 +2892,7 @@ input, select, textarea {
 		body.home-page .tiles article:focus-within > a,
 		body.home-page .tiles article:active > a {
 			transform: scale(1.095);
+			transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease;
 			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
 		}
 
@@ -2937,6 +2938,7 @@ input, select, textarea {
 		body.home-page .tiles article:active > .image img {
 			filter: grayscale(0) saturate(1) brightness(1);
 			transform: translate3d(var(--img-shift-x), var(--img-shift-y), 0) scale(1.14) rotateX(var(--img-tilt-x)) rotateY(var(--img-tilt-y));
+			transition: transform 3s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3521,12 +3523,33 @@ input, select, textarea {
 		min-width: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5em;
+		gap: 0;
+	}
+
+	body.asset-content-page .asset-content-stack > .asset-banner {
+		margin: 0;
+		border: solid 1px #c9c9c9;
+		border-radius: 4px;
+		overflow: hidden;
+		background: #ffffff;
+	}
+
+	body.asset-content-page .asset-content-stack > .asset-banner img {
+		display: block;
+	}
+
+	body.asset-content-page .asset-content-stack > .asset-content-panel + .asset-content-panel {
+		margin-top: 0.5em;
 	}
 
 	body.dark-mode.asset-content-page .asset-side-menu .asset-side-menu-title,
 	body.dark-mode.asset-content-page .asset-side-menu .asset-side-menu-links,
 	body.dark-mode.asset-content-page .asset-content-panel {
+		background: #22222a;
+		border-color: #575765;
+	}
+
+	body.dark-mode.asset-content-page .asset-content-stack > .asset-banner {
 		background: #22222a;
 		border-color: #575765;
 	}
