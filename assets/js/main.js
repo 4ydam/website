@@ -30,6 +30,51 @@
 		if (browser.mobile)
 			$body.addClass('is-touch');
 
+	// Theme toggle.
+		var themeStorageKey = 'theme',
+			$themeToggles = $('.theme-toggle');
+
+		var applyTheme = function(theme) {
+			var isDark = (theme === 'dark');
+			$body.toggleClass('dark-mode', isDark);
+			$themeToggles
+				.attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
+				.attr('aria-pressed', isDark ? 'true' : 'false')
+				.find('.theme-icon').text(isDark ? '🌚' : '🌞');
+		};
+
+		var getInitialTheme = function() {
+			var storedTheme = null;
+
+			try {
+				storedTheme = window.localStorage.getItem(themeStorageKey);
+			}
+			catch (e) {
+				storedTheme = null;
+			}
+
+			if (storedTheme === 'dark' || storedTheme === 'light')
+				return storedTheme;
+
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				return 'dark';
+
+			return 'light';
+		};
+
+		applyTheme(getInitialTheme());
+
+		$body.on('click', '.theme-toggle', function() {
+			var nextTheme = $body.hasClass('dark-mode') ? 'light' : 'dark';
+			applyTheme(nextTheme);
+
+			try {
+				window.localStorage.setItem(themeStorageKey, nextTheme);
+			}
+			catch (e) {
+			}
+		});
+
 	// Forms.
 		var $form = $('form');
 
