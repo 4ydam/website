@@ -31,11 +31,15 @@
 			$body.addClass('is-touch');
 
 	// Theme toggle.
-		var themeStorageKey = 'theme',
-			$themeToggles = $('.theme-toggle');
+		var themeStorageKey = 'theme';
+
+		var getThemeToggles = function() {
+			return $('.theme-toggle');
+		};
 
 		var applyTheme = function(theme) {
 			var isDark = (theme === 'dark');
+			var $themeToggles = getThemeToggles();
 			$body.toggleClass('dark-mode', isDark);
 			$themeToggles
 				.attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
@@ -73,6 +77,10 @@
 			}
 			catch (e) {
 			}
+		});
+
+		document.addEventListener('includes:loaded', function() {
+			applyTheme($body.hasClass('dark-mode') ? 'dark' : 'light');
 		});
 
 	// Forms.

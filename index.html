@@ -5,17 +5,12 @@
 		<title>4ydam (Home Page)</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<script>
-			if (window.location.pathname.endsWith('/index.html')) {
-				const cleanPath = window.location.pathname.slice(0, -'index.html'.length) || '/';
-				window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
-			}
-		</script>
 		<link rel="icon" type="image/png" href="images/logo-WhiteOnBlack.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload home-page">
+		<canvas id="home-bg-canvas" aria-hidden="true"></canvas>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -32,12 +27,12 @@
 									<ul class="icons">
 										<li><a href="https://x.com/4ydam" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="https://www.youtube.com/@4ydam" class="icon brands style2 fa-youtube"><span class="label">YouTube</span></a></li>
-										<li><a href="https://assetstore.unity.com/" class="icon brands style2 fa-unity"><span class="label">Unity</span></a></li>
+										<li><a href="https://assetstore.unity.com/publishers/139274" class="icon brands style2 fa-unity"><span class="label">Unity</span></a></li>
 										<li><a href="https://store.steampowered.com/developer/4ydam" class="icon brands style2 fa-steam"><span class="label">Steam</span></a></li>
 									</ul>
 									<button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
 										<span class="theme-switch" aria-hidden="true"></span>
-										<span class="theme-icon" aria-hidden="true">🌞</span>
+										<span class="theme-icon" aria-hidden="true">👋</span>
 									</button>
 								</div>
 
@@ -48,7 +43,7 @@
 					<div id="main">
 						<div class="inner">
 							<header>
-								<p><b>Hi there I'm Adam aka 4ydam</b> 💬 
+								<p><b>Hi there I'm Adam aka 4ydam</b> 👋
 									<br />// I am an Indie Game Developer publishing my own games on Steam. Creator of Last Term & Idlemon.
 									<br />// I also create Visual Game Assets, available on the Unity Asset Store.
 								</p>
@@ -56,24 +51,18 @@
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
+										<img src="images/home-games.jpg" alt="" />
 									</span>
 									<a href="https://store.steampowered.com/developer/4ydam">
 										<h2>Games</h2>
-										<div class="content">
-											<p>Check out my games.</p>
-										</div>
 									</a>
 								</article>
 								<article class="style2">
 									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
+										<img src="images/home-assets.jpg" alt="" />
 									</span>
-									<a href="assets.html">
+									<a href="assets/">
 										<h2>Assets</h2>
-										<div class="content">
-											<p>Check out my assets.</p>
-										</div>
 									</a>
 								</article>
 
@@ -82,17 +71,7 @@
 					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<p class="footer-links"><a href="./">Home</a><span>|</span><a href="generic.html">Games</a><span>|</span><a href="assets.html">Assets</a></p>
-	
-							</section>
-							<ul class="copyright">
-								<li>&copy; All rights reserved</li><li>4YDAM</li>
-							</ul>
-						</div>
-					</footer>
+				<div data-include="assets/partials/footer.html"></div>
 
 			</div>
 
@@ -101,6 +80,9 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/includes.js"></script>
+			<script src="assets/js/home-bg.js"></script>
+			<script src="assets/js/home-tiles.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>

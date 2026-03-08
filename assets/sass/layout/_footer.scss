@@ -37,7 +37,7 @@
 				margin-top: 5em;
 				list-style: none;
 				font-size: 0.8em;
-				color: transparentize(_palette(fg), 0.5);
+				color: transparentize(_palette(fg), 0.35);
 
 				a {
 					color: inherit;
@@ -45,7 +45,7 @@
 
 				li {
 					display: inline-block;
-					border-left: solid 1px transparentize(_palette(fg), 0.85);
+					border-left: solid 1px transparentize(_palette(fg), 0.75);
 					line-height: 1;
 					padding: 0 0 0 1em;
 					margin: 0 0 0 1em;

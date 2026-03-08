@@ -26,6 +26,12 @@
 		vertical-align: baseline;
 	}
 
+	html {
+		font-size: 100%;
+		overflow-y: scroll;
+		scrollbar-gutter: stable;
+	}
+
 	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;

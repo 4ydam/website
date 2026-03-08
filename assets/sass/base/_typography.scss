@@ -1,4 +1,3 @@
-///
 /// Phantom by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -9,17 +8,24 @@
 	body, input, select, textarea {
 		color: _palette(fg);
 		font-family: _font(family);
-		font-size: 16pt;
-		font-weight: _font(weight);
+		font-size: 1rem;
+		font-weight: 500;
 		line-height: 1.75;
 
 		@include breakpoint('<=xlarge') {
-			font-size: 14pt;
+			font-size: 0.95rem;
 		}
 
 		@include breakpoint('<=large') {
-			font-size: 12pt;
+			font-size: 0.9rem;
 		}
+	}
+
+	body:not(.dark-mode),
+	body:not(.dark-mode) input,
+	body:not(.dark-mode) select,
+	body:not(.dark-mode) textarea {
+		color: #3f3f3f;
 	}
 
 	a {
@@ -37,6 +43,11 @@
 		}
 	}
 
+	body:not(.dark-mode) a {
+		color: #2e2d2d;
+		border-bottom-color: rgba(63, 63, 63, 0.5);
+	}
+
 	strong, b {
 		color: _palette(fg-bold);
 		font-weight: _font(weight-bold);
@@ -47,7 +58,12 @@
 	}
 
 	p {
+		font-weight: inherit;
 		margin: 0 0 _size(element-margin) 0;
+	}
+
+	li {
+		font-weight: inherit;
 	}
 
 	h1 {
