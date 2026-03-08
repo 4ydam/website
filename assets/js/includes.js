@@ -12,7 +12,7 @@
 				return;
 
 			try {
-				var response = await fetch(includePath, { cache: 'no-store' });
+				var response = await fetch(includePath, { cache: 'default' });
 				if (!response.ok)
 					throw new Error('Failed to load include: ' + includePath);
 
@@ -28,8 +28,14 @@
 		document.dispatchEvent(new CustomEvent('includes:loaded'));
 	}
 
-	if (document.readyState === 'loading')
-		document.addEventListener('DOMContentLoaded', loadIncludes);
-	else
+	if (document.readyState === 'loading') {
+		// Scripts are placed at end-of-body, so include targets usually already exist.
+		if (document.querySelector('[data-include]'))
+			loadIncludes();
+		else
+			document.addEventListener('DOMContentLoaded', loadIncludes, { once: true });
+	}
+	else {
 		loadIncludes();
+	}
 })();
