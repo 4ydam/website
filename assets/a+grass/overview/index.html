@@ -17,27 +17,34 @@
 				<div class="inner">
 					<section class="asset-content-layout">
 						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
 							<div class="asset-side-menu-title">
 								<h2>Documentation</h2>
 							</div>
 							<div class="asset-side-menu-links">
 								<ul>
 									<li><a class="is-active" href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
 									<li><a href="../getting-started/">Getting Started</a></li>
-									<li><a href="../setup/">Setup</a></li>
-									<li><a href="../parameters/">Parameters</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a href="../issues/">Issues</a></li>
 									<li><a href="../changelog/">Changelog</a></li>
 								</ul>
 							</div>
 						</aside>
 
-						<div class="asset-content-stack">
-							<span class="image main asset-banner"><img src="../../../images/banner-a+grass.png" alt="A+ Grass banner" /></span>
+					<div class="asset-content-stack">
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_banner.png" alt="A+ Grass banner" /></span>
 
 							<div class="asset-content-panel">
 								<div class="asset-title-row">
-									<h2>A+ URP Grass</h2>
-									<span class="asset-price">$9.99</span>
+									<h2>A+ Grass</h2>
+									<span class="asset-price">$15.00</span>
 								</div>
 
 								<p class="asset-meta-row"><span class="asset-tag">URP</span><span class="asset-tag">Shader</span></p>
@@ -46,6 +53,8 @@
 								<br />
 								<br />It has unlimited customization using any 2D texture you like to render, adjustable colour with gradient settings, colour noise, wind noise with 2 blend modes, characters and mouse interactive behaviour.
 								</p>
+								<p class="asset-note"> <b>Note:</b> This asset is intended for top-down games, with a limited view, and might not be as performant with a bigger field of grass and thousands of individual grass blades, like in a 1st person game.</p>
+								<br />
 
 								<p class="asset-link-row"><a href="https://assetstore.unity.com/publishers/139274" target="_blank" rel="noopener noreferrer">View In Unity Asset Store</a></p>
 							</div>
@@ -53,36 +62,84 @@
 							<div class="asset-content-panel">
 								<h2>Preview</h2>
 								<div class="video-embed">
-									<iframe src="https://www.youtube.com/embed/fVQBTvO4b0Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+									<iframe src="https://www.youtube.com/watch?v=0UC_NP39AtU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+								<div class="screenshot-gallery">
+									<a href="../../../images/grass/grass_ss01.png" class="screenshot-thumb">
+										<img src="../../../images/grass/grass_ss01.png" alt="A+ Grass screenshot 1" />
+									</a>
+									<a href="../../../images/grass/grass_ss05.png" class="screenshot-thumb">
+										<img src="../../../images/grass/grass_ss05.png" alt="A+ Grass screenshot 5" />
+									</a>
 								</div>
 							</div>
 
 							<div class="asset-content-panel">
-								<h2>Contents</h2>
-								<p>This asset includes all necessary files and resources to get started quickly.</p>
-								<ul>
-									<li>Core Scripts</li>
-									<li>Example Scenes</li>
-									<li>Documentation</li>
-								</ul>
+							<h2>Contents</h2>
+							<p>In the package you will find the following folders:</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_mainFolder.png" alt="A+ Grass main folder" /></span>
+							<p>It includes a Read Me with basic information, links, and license details, as well as an offline .pdf documentation, which contains brief explanation of the asset.</p>
+							
+							<p><b> Editor </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_editor.png" alt="A+ Grass editor folder" /></span>
+							<p>Editor contains custom inspector scripts, which allows you to easily adjust the settings and parameters of the shader in a user-friendly interface.</p>
+							<span class="asset-note"><b> Do Not Delete! </b> They are essential for the proper functioning/visibility of the asset. Only modify them if you know what you are doing.</span>
+							<br />
+							
+							<p><b> Materials </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_materials.png" alt="A+ Grass materials folder" /></span>
+							<p>You will find 5 grass material presets set up as an example of what you can achieve with the A+ Grass shader. (This includes a ground material for each) They are all using a unique texture for the mesh sampling and rendering, included as part of the package. And also a simple grid material using a checker pattern.</p>
+							
+							<p><b> Models </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_models.png" alt="A+ Grass models folder" /></span>
+							<p>There is a grass patch with multiple quads. There as 3 presets/levels, as it is setup with the LOD component, gradually decreasing amaount of quads and culling when off view.</p>
+							<span class="asset-note"><b> LOD0  </b> Vertices: 84 / Edges: 84 / Faces: 21</span>
+							<span class="asset-note"><b> LOD1  </b> Vertices: 44 / Edges: 44 / Faces: 11</span>
+							<span class="asset-note"><b> LOD2  </b> Vertices: 8 / Edges: 8 / Faces: 2</span>
+							<br />
 
-								<p><strong>Features:</strong></p>
-								<ul>
-									<li>Texture based grass rendering</li>
-									<li>Adjustable color with gradient settings</li>
-									<li>Color variation setup with noise map</li>
-									<li>Wind noise with 2 blend modes</li>
-									<li>Character and mouse interactive behavior</li>
-								</ul>
+							<p><b> Prefabs </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_prefabs.png" alt="A+ Grass prefabs folder" /></span>
+							<p>Prefabs include 5 unique grass presets using the included grass sprites, 1 specifically set up for a top-down view, as well as 1 for the terrain.</p>
 
-								<p>(All customizable and easy to use)</p>
-							</div>
+							<p><b> Scenes </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_scenes.png" alt="A+ Grass scenes folder" /></span>
+							<p>There are 3 demo scenes that showcase the different features and setups of the A+ Grass asset. There's also Terrain data for the 3rd Scene in that folder.</p>
+							<span class="asset-note"><b> Demo 01  </b> Mouse interactivity alongside all of the 5 unique grass presets.</span>
+							<span class="asset-note"><b> Demo 02  </b> Top-Down setup with character interactivity with presentation of LOD in use.</span>
+							<span class="asset-note"><b> Demo 03  </b> 1st Person setup with a field of grass on a terrain.</span>
+							<br />
+								
+							<p><b> Scripts </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_scripts.png" alt="A+ Grass scripts folder" /></span>
+							<p>In scripts folder there are 3 core scripts that handle the main functionality of the A+ Grass asset. 
+							<span class="asset-note"><b> Do Not Delete! </b> They are essential for the proper functioning/visibility of the asset. Only modify them if you know what you are doing.</span>
+							<br />Additionally, there is a Demo folder that includes scripts used in showcase of the asset in the Demo scenes. Feel free to remove these alongside the Demo scenes if you have already explored the asset and are ready to use it in your project.</p>
+
+							<p><b> Shader </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader.png" alt="A+ Grass shader folder" /></span>
+							<p>Includes the main shader used for rendering the grass.</p>
+
+							<p><b> Textures </b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_textures.png" alt="A+ Grass textures folder" /></span>
+							<p>Inside you will find 5 unique sprite textures used for the example grass materials, 5 ground textures for each grass example, a simple checker pattern texture, ramp texture, terrain layer and 5 wind noise textures.</p>
+							<span class="asset-note"><b> Ground Textures  </b> 256x256px</span>
+							<span class="asset-note"><b> Noise Textures  </b> 1024x1024px</span>
+							<span class="asset-note"><b> Grass Sprites  </b> 1024x1024px</span>
+							<span class="asset-note"><b> Colour Ramp  </b> 128x8px</span>
+
+						</div>
 						</div>
 					</section>
 				</div>
 			</div>
 
 			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<div id="screenshot-lightbox" class="screenshot-lightbox">
+			<span class="lightbox-close">&times;</span>
+			<img class="lightbox-img" alt="Screenshot preview" />
 		</div>
 
 		<!-- Scripts -->
@@ -92,6 +149,40 @@
 			<script src="../../../assets/js/util.js"></script>
 			<script src="../../../assets/js/includes.js"></script>
 			<script src="../../../assets/js/main.js"></script>
+			<script src="../../../assets/js/section-links.js"></script>
+			<script src="../../../assets/js/doc-search.js"></script>
+			<script>
+				(function() {
+					var lightbox = document.getElementById('screenshot-lightbox');
+					var lightboxImg = lightbox.querySelector('.lightbox-img');
+					var closeBtn = lightbox.querySelector('.lightbox-close');
+
+					document.querySelectorAll('.screenshot-thumb').forEach(function(thumb) {
+						thumb.addEventListener('click', function(e) {
+							e.preventDefault();
+							lightboxImg.src = this.href;
+							lightboxImg.alt = this.querySelector('img').alt;
+							lightbox.classList.add('is-visible');
+						});
+					});
+
+					closeBtn.addEventListener('click', function() {
+						lightbox.classList.remove('is-visible');
+					});
+
+					lightbox.addEventListener('click', function(e) {
+						if (e.target === lightbox) {
+							lightbox.classList.remove('is-visible');
+						}
+					});
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape') {
+							lightbox.classList.remove('is-visible');
+						}
+					});
+				})();
+			</script>
 
 	</body>
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>A+ Grass Interactivity</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title">
+								<h2>Documentation</h2>
+							</div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a class="is-active" href="../interactivity/">Interactivity</a></li>
+									<li><a href="../issues/">Issues</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+						<div class="asset-content-stack">
+							<div class="asset-content-panel">
+								<h2>Interactivity</h2>
+								<p>This page covers the setup and usage of interactive grass features. Make sure you have first gone through the setup of the grass shader and can follow along using your mesh setup in the scene.</p>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Video Tutorial</h2>
+								<div class="video-embed">
+									<iframe src="https://www.youtube.com/watch?v=0UC_NP39AtU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Quick Setup</h2>
+								<p> 
+								<p> To add interactive behaviour to the grass, you need to input the Grass Manager into the scene, as well as Grass Interactor onto any object you want interactive behaviour from. </p>
+								<p> Additionally, if you are looking for interactive behaviour for the mouse, you will need to add the Grass Mouse Interactor script onto the main camera in your scene. All of it covered below.</p>
+							</div>
+							<div class="asset-content-panel">
+								<h2>Grass Manager</h2>
+								<p>The Grass Manager is responsible for managing all interactive grass elements in the scene. There is also global settings for the wind and recovery of the grass from interactions.</p>
+								<p><b>Wind Settings</b></p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_windSettings.png" alt="A+ Grass Wind" /></span>
+								<p>Wind Settings let you adjust the wind dynamically at runtime for a real weather effect. </p>
+								<span class="asset-note">These settings are covered in the <a href="../getting-started/"><b>Getting Started</b></a> section.</span>
+								<br />
+								<p><b>Grass Recovery</b></p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_grassRecovery.png" alt="A+ Grass Recovery" /></span>
+								<p>Grass Recovery settings allow you to control how the grass returns to its original state after being interacted with. These are global values and will affect all of the grass in the scene.</p>
+								<p><span class="asset-inline-note">Recovery Speed</span> adjusts how quickly the grass returns to its original state after being interacted with.
+								<span class="asset-inline-note">Recovery Delay</span> adjusts the delay before the grass starts to recover after being interacted with.</p>
+								<span class="asset-note"><b>Recommended Settings: </b> For natural behavior, use low values for both Recovery Speed and Recovery Delay.</span>
+								<br />
+								<p><b>Runtime Changes</b></p>
+							    <span class="asset-note"> <b>Important!</b> On Start, a method called <span class="asset-inline-note">FindGrass( )</span> is executed, which finds all of the grass in the scene to make it interactable.</span></p>
+								<p>If you want to add/change grass at runtime, you can call the <span class="asset-inline-note">FindGrass</span> method again to update the interactive grass elements as it is a public method. Do it from any script in your project, just reference the <span class="asset-inline-note">Grass Manager</span> script, and run the <span class="asset-inline-note">grassManager.FindGrass( );</span> method.</p>
+							</div>
+							<div class="asset-content-panel">
+								<h2>Grass Interactor</h2>
+								<p>The Grass Interactor is responsible for handling the interactions between the grass and other objects in the scene. It allows objects to affect the grass, bending and pushing it. You can have as many interactors in the scene, just make sure to add the <span class="asset-inline-note">Grass Interactor</span> component to each.</p>
+								<p><b>Interaction Settings</b></p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_interactSettings.png" alt="A+ Grass Interaction Settings" /></span>
+								<p>These values are per interactor so each interactor can behave differently. </p>
+								<span class="asset-inline-note">Push Rate</span> acts as strength that gets applied to the grass when on top of the grass. This value accumulates and can intensify the push effect with continuous movement in the same area. </p>
+								<span class="asset-inline-note">Maximum Rate</span> limits how much of the push rate can be accumulated.</p>
+								<p><b>Motion Detection</b></p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_motionDetection.png" alt="A+ Grass Motion Detection" /></span>
+								<p>You can limit at what speed interaction takes place with <span class="asset-inline-note">Movement Threshold</span> But generally keep this value below 1, at low threshold to prevent any jitter as with value of 0 it will always keep updating the grass and pushing it based off interactor's position. Use gizmos to view this (It turns yellow when in motion)</p>
+								<p><span class="asset-inline-note">Detection Radius</span> determines the area around the interactor where it can detect and affect the grass. Adjusted depending on the size of your character/interactor.</p>
+								<p>If you need to change the position of where the interaction takes place use the <span class="asset-inline-note">Position Offset</span> to adjust the center of the detection radius.</p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Gizmos" /></span>
+								<p>At the bottom you have the option to turn on/off the gizmos for the grass interactor to see the size of the detection radius, and where it is depending on the position offset.</p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmosPreview.png" alt="A+ Grass Gizmos Preview" /></span>
+							</div>
+							<div class="asset-content-panel">
+								<h2>Mouse Interaction Handler</h2>
+								<p>The Mouse Grass Interaction Handler provides data from the mouse position off the camera using a ray to allow an interactor to follow the mouse position and interact with the grass.</p>
+								<p><b>Setup</b></p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_mouseHandler_setup.png" alt="A+ Grass Mouse Handler Setup" /></span>
+								<p>Assign an empty game object with the <span class="asset-inline-note">Interactor</span> component to the <span class="asset-inline-note">Mouse Grass Interaction Handler</span>. This gameObject will follow the mouse position and interact with the grass where the ray hits.</p>
+								<p>Include inside the <span class="asset-inline-note">Interactive Layer</span> all of the layers you want the mouse handler to interact with.</p>
+								<p><span class="asset-inline-note">Distance</span> value determines how far the ray from the camera will reach.</p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Mouse Handler Gizmos" /></span>
+								<p>At the bottom you have the option to turn on/off the gizmos for the mouse handler to preview the distance of the ray from the camera.</p>
+								<span class="image main asset-banner"><img src="../../../images/grass/grass_mouseHandler_gizmosPreview.png" alt="A+ Grass Mouse Handler Gizmos Preview" /></span>
+							</div>
+
+							<div class="asset-content-panel">
+								<p>That covers the interactivity with the A+ Grass Shader!
+									<p>If you like the asset, please consider leaving a review on the Unity Asset Store! </p>
+								<a href="https://assetstore.unity.com/publishers/139274" target="_blank"><b>Leave A Review</b></a>
+								</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/includes.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
+
+	</body>
+</html>

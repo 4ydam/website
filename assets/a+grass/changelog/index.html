@@ -17,15 +17,22 @@
 				<div class="inner">
 					<section class="asset-content-layout">
 						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
 							<div class="asset-side-menu-title">
 								<h2>Documentation</h2>
 							</div>
 							<div class="asset-side-menu-links">
 								<ul>
 									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
 									<li><a href="../getting-started/">Getting Started</a></li>
-									<li><a href="../setup/">Setup</a></li>
-									<li><a href="../parameters/">Parameters</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a href="../issues/">Issues</a></li>
 									<li><a class="is-active" href="../changelog/">Changelog</a></li>
 								</ul>
 							</div>
@@ -39,11 +46,16 @@
 
 							<div class="asset-content-panel">
 								<div class="asset-title-row">
-									<h2>Version 1.0</h2>
-									<span class="asset-price">20/03/2026</span>
+									<h2>Version 1.0.0</h2>
+									<span class="asset-price">xx/04/2026</span>
 								</div>
 								<p>Initial release of the A+ URP Grass asset.</p>
-								<p>Supported for Unity Editor Version 6000.3 +</p>
+								<p>Supported for Unity Versions:</p>
+								<ul>
+									<li>6000.3+</li>
+									<li>6000.0+</li>
+									<li>2022+</li>
+								</ul>
 
 								<p><strong>Contents:</strong></p>
 								<ul>
@@ -59,6 +71,8 @@
 									<li>Color variation setup with noise map</li>
 									<li>Wind noise with 2 blend modes</li>
 									<li>Character and mouse interactive behavior</li>
+									<li>Perspective correction</li>
+									<li>Adjustable runtime weather</li>
 								</ul>
 							</div>
 						</div>
@@ -75,6 +89,8 @@
 		<script src="../../../assets/js/util.js"></script>
 		<script src="../../../assets/js/includes.js"></script>
 		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
 
 	</body>
 </html>

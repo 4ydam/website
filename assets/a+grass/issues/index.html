@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>A+ Grass Issues</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title">
+								<h2>Documentation</h2>
+							</div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a class="is-active" href="../issues/">Issues</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+						<div class="asset-content-stack">
+							<div class="asset-content-panel">
+								<h2>Issues</h2>
+								<p>This page covers things that might cause problems or unexpected behavior in the A+ Grass asset.</p>
+							</div>
+							<div class="asset-content-panel">
+								<h2>"Grass Is Darker Than Expected"</h2>
+								<p>It could happen on the package import when first trying the asset due to compatibility of all Rendering Paths and not being assigned to the correct one on import. Just go to your project's Settings folder and on your <span class="asset-inline-note">Renderer Data > Rendering</span>, swap <span class="asset-inline-note">Rendering Path</span> to a different one and back and it should fix it. </p>
+								<p>Otherwise, make sure that your material setup is correct, check your Texture Ramp, Colour, or Colour Variant and if you're not just overriding your base colour with another.</p>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>"Wind Effect Is Broken"</h2>
+								<p>Issues will most likely occur if you are using a custom model/mesh and its not setup correctly.</p>
+								<p><b>Check following:</b></p>
+								<ul>
+								<li>The original/base scale needs to be 1,1,1 (Anything else like 100,100,100 scale will cause issues) Ensure you export your mesh correctly and you apply normal scale. </li>
+								<br />
+								<li>Could be as simple as the values not set and the effect being disabled. Check the material and the values under the wind section and if you have assigned a noise texture.</li>
+								</ul>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>"Base Texture Is Not Displaying Correctly"</h2>
+								<p>Issues will most likely occur if you are using a custom model/mesh and its not setup correctly.</p>
+								<p><b>Check following:</b></p>
+								<ul>
+								<li>Ensure the UV is done correctly. The mesh face should cover the full box as that is how the texture will be mapped. (Check its rotate properly as well)</li>
+								<br />
+								<li>Check your tiling and offset values on the base texture. You can reset them using <span class="asset-inline-note">R</span> button to reset to default values.</li>
+								</ul>
+							</div>
+
+							<div class="asset-content-panel">
+								<p><b>If...</b> you have encountered something not covered in the documentation and the asset's setup, or on this page, consider reaching out.</p>
+								<b>Contact me at support@4ydam.com </b></p>
+
+								<p>In the subject of the email provide the name of the asset and the invoice number. In the description please explain the issue you are dealing with. Proivde as much detail as possible.</p>
+								<ul>
+								<li>What happened?</li>
+								<li>What were you trying to do when the issue occurred?</li>
+								<li>What have you tried already to fix it?</li>
+								<li>Providing screenshots or/and videos of the issue would be very helpful.</li>
+								</ul>
+
+								<p><b>Requests</b></p>
+								<p>If it's not an issue and instead a request/suggestion on what you'd like to see in the asset, feel free to send me an email as well! I will take any kind of feedback on what could be added or improved upon. But please do understand that I might not be able to implement everything due to time limitation with most of my time invested in developing new assets and creating my own games!</p>
+							</div>
+						</div>
+
+					</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/includes.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
+
+	</body>
+</html>
+
+

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>A+ Grass Technical</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title">
+								<h2>Documentation</h2>
+							</div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a href="../overview/">Overview</a></li>
+									<li><a class="is-active" href="../technical/">Technical</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a href="../issues/">Issues</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+					<div class="asset-content-stack">
+
+						<div class="asset-content-panel">
+							<h2>Technical</h2>
+							<p>Before acquiring the A+ Grass asset, make sure it meets your needs, but also provides the functionality you are looking for.</p>
+                            <p>This page provides information on how the asset works, what settings are needed, and what versions of Unity it is compatible with. For further understanding on optimizing draw calls, refer to Unity's documentation:</p>
+                            <a href="https://docs.unity3d.com/Manual/reduce-draw-calls-landing.html" target="_blank" rel="noopener noreferrer"><b>Unity Draw Calls</b></a>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Compatibility</h2>
+							<p>A+ Grass is compatible with Unity Editor Version 6000.0 and above. It was developed in Unity Editor Version 6000.3.9f1 with Universal Rendering Pipeline (URP)</p>
+                            <p><b>Render Pipelines:</b>
+                            <ul>
+                                <li>✅ URP</li>
+                                <li>❌ HDRP</li>
+                                <li>❌ Built-In</li>
+                            </ul>
+                            <p><b>Rendering Paths:</b>
+                            <ul>
+                                <li>✅ Forward</li>
+                                <li>✅ Forward +</li>
+                                <li>✅ Deferred</li>
+                                <li>✅ Deferred +</li>
+                            </ul>
+                            <p><b>Unity Versions:</b>
+                            <ul>
+                                <li>✅ 6000.3 + (Developed in 6000.3.9f1)</li>
+                                <li>✅ 6000.0 + (Tested in 6000.0.71f1)</li>
+                                <br />
+                                <li>✅ 2022 + (Tested in 2022.3.62f3)</li>
+                                <li>🚧 2022 - (Not tested below that version)</li>
+                            </ul>
+                        </div>		
+
+						<div class="asset-content-panel">
+							<h2>Recommended Settings</h2>
+							<p>The assets was developed for the Universal Rendering Pipeline (URP) Here's recommended settings:</p>
+
+                            <ul>
+                                <li>Depth + Opaque Texture - On (Not Used)</li>
+                                <li>GPU Resident Drawer - Off (Not Used)</li>
+                                <li>Dynamic Batching - Off</li>
+                                <li>SRP Batcher - On</li>
+                                <li>GPU Instancing - Off</li>
+                            </ul>
+         
+                        </div>		
+
+                        <div class="asset-content-panel">
+							<h2>Settings Overview</h2>
+                            <br />
+                            <p><b>Depth Texture</b></p>
+                            <span class="asset-note"> <b>Note:</b> The shader doesn't sample depth texture and is not needed to function.</span></p>
+                            <p>URP's depth texture is an extra render pass where the camera renders all opaque objects' depth into a screen-space texture. Shaders can then sample it to know the depth of the pixels behind other objects, used for soft particles or water edge detection.</p>
+                            <p>A+ Grass shader never reads this texture as it writes depth via <span class="asset-inline-note">DepthOnly</span> and <span class="asset-inline-note">DepthNormals</span> passes which contribute to the depth texture, never sampling it.</p>
+                            
+                            <p><b>GPU Resident Drawer</b></p>
+                            <span class="asset-note"> <b>Note:</b> The shader doesn't support GPU Resident Drawer and is not needed to function.</span></p>
+                            <p>The GPU Resident Drawer automatically uses the BatchRendererGroup API to draw GameObjects with GPU instancing, which reduces the number of draw calls and frees CPU processing time. It keeps all mesh data persistently on the GPU, culls on the GPU and issues indirect draw calls. It's used to render Unity's Data-Oriented Technology Stack (DOTS) Entities. (Turn on/off in project settings, in the Render Pipeline Asset) </p>
+                            <p>SRP Batcher is already handling the CPU overhead efficiently and therefore GPU Resident Drawer is not used. </p>
+
+                            <p><b>Dynamic Batching</b></p>
+                            <span class="asset-note"> <b>Note:</b> The shader doesn't support dynamic batching and is not needed to function. Having it enabled will even waste CPU resources.</span></p>
+                            <p>Dynamic batching works by combining multiple mesh vertices on the CPU every frame into a single vertex buffer, then issuing one draw call instead of many. Unity does this work on the main thread.
+                            For it to work, the vertex shader must produce the same result regardless of which object the vertex belongs to. (Turn on/off in project settings, in the Render Pipeline Asset) </p>
+                            <p>A+ Grass shader could be batched through Dynamic Batching, but the CPU cost of merging all of the grass meshes' vertex buffers every frame would exceed the GPU savings from fewer draw calls.</p>
+
+                            <p><b>SRP Batcher</b></p>
+                            <span class="asset-note"> <b>Note:</b> SRP Batcher takes over GPU Instancing. Use it in URP projects.</span></p>
+                            <p>Traditional rendering uploads material properties to the GPU per draw call. If you have 500 grass meshes, that's 500 uploads of the same float/vector data every frame.
+                            SRP Batcher changes this. It persistently caches the <span class="asset-inline-note">CBUFFER_START(UnityPerMaterial)</span> block on the GPU. Once uploaded, the data stays there until you actually change a property value. So those 500 grass meshes sharing the same material upload their CBUFFER once, not 500 times.</p>
+                                                        
+                            <p>All of the properties are using <span class="asset-inline-note">CBUFFER_START(UnityPerMaterial)</span>, textures/samplers outside. Therefore within the URP project it will take priority over GPU Instancing if on, saving draw calls. (Turn on/off in project settings, in the Render Pipeline Asset)</p>
+                            <p><b>GPU Instancing</b></p>
+                            <span class="asset-note"> <b>Note:</b> Use GPU Instancing in Built-In projects.</span></p>
+                            <p>GPU Instancing tells the GPU to draw this exact same mesh x amount of times, here are x different transform matrices (and optionally x different property values). One draw call, x amount of objects. The GPU handles the repetition.</p>
+
+                            <p>The shader supports GPU instancing through <span class="asset-inline-note">multi_compile_instancing</span> with consideration of Built-In projects (But not currently supported). However, inside of URP project SRP Batcher takes priority, and you should use that instead. (Turn on/off at the bottom of the grass material.)</p>
+						</div>
+
+					</div>
+					</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/includes.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
+	</body>
+</html>

@@ -17,15 +17,22 @@
 				<div class="inner">
 					<section class="asset-content-layout">
 						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
 							<div class="asset-side-menu-title">
 								<h2>Documentation</h2>
 							</div>
 							<div class="asset-side-menu-links">
 								<ul>
 									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
 									<li><a class="is-active" href="../getting-started/">Getting Started</a></li>
-									<li><a href="../setup/">Setup</a></li>
-									<li><a href="../parameters/">Parameters</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a href="../issues/">Issues</a></li>
 									<li><a href="../changelog/">Changelog</a></li>
 								</ul>
 							</div>
@@ -35,21 +42,225 @@
 
 						<div class="asset-content-panel">
 							<h2>Getting Started</h2>
-							<p>Welcome to the A+ URP Grass asset! This documentation will help you get started quickly and efficiently.
+							<p>Welcome to the A+ Grass asset! This documentation will help you get started quickly and efficiently.
 							<br />
-							<br />You can import the A+ URP Grass asset into your Unity project by downloading it from the Unity Asset Store or from the Package Manager directly in your project.
+							<br />You can import the A+ Grass asset into your Unity project by downloading it from the Unity Asset Store or from the Package Manager directly in your project.
 							</p>
 						</div>
 
 						<div class="asset-content-panel">
-							<p>In the folder of the asset you will find a Demo Scene which you can use to explore the features and functionality of the A+ URP Grass asset on your own. 
-								Otherwise you can follow along with the documentation to learn how to set up and use the asset in your own project.
+							<h2>Video Tutorial</h2>
+							<div class="video-embed">
+								<iframe src="https://www.youtube.com/watch?v=0UC_NP39AtU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+							</div>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Quick Setup</h2>
+							<p>You can use one of the examples provided to get started quickly. To get the grass up and running in your project, simply drag and drop the prefab into your scene, add Grass Manager into an empty game object, and hit play. 
+							<br /> <p>You can find the prefabs in the folder <span class="asset-inline-note">A+ Grass > Prefabs > Grass Patch</span> </p>
+
+							<p> To add interactive behaviour to the grass, you need to additionally input the Grass Interactor onto any object you want interactive behaviour from. But Let's cover the setup in depth and without the use of the examples. Starting with the Mesh & Shader setup. </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Project Settings</h2>
+							<p>You can use one of the examples provided to get started quickly. To get the grass up and running in your project, simply drag and drop the prefab into your scene, add Grass Manager into an empty game object, and hit play. 
+							<br /> <p>You can find the prefabs in the folder <span class="asset-inline-note">A+ Grass > Prefabs > Grass Patch</span> </p>
+
+							<p> To add interactive behaviour to the grass, you need to additionally input the Grass Interactor onto any object you want interactive behaviour from. But Let's cover the setup in depth and without the use of the examples. Starting with the Mesh & Shader setup. </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Grass Patch Model</h2>
+							<p>Start by adding a mesh into your scene that you can use the grass shader on. Make your own, or use the provided template located in folder <span class="asset-inline-note">A+ Grass > Models > Grass Patch</span> </p></p>
+							<p><b>Level of Detail (LOD)</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_ModelLOD.png" alt="A+ Grass model" /></span>
+							<p>The template has a Level of Detail (LOD) component included for optimizing performance based on the distance from the camera. There are 3 levels/variants of the model, reducing amount of faces with each. Remove or adjust the LOD depending on your project's needs.</p>
+							<p><b>Render Face</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_ModelRenderFace.png" alt="A+ Grass model render face" /></span>
+							<p>What you can notice is that by default the material's <span class="asset-inline-note">Render Face</span> is set to Front. This means that not all of the faces of this model will be visible from each angle.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_renderFace.png" alt="A+ Grass shader render face" /></span>
+							<p>The A+ Grass shader will enable it to Both by default, but you can change it if needed.</p>
+							<p><b>Shadows / Performance</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_ModelMeshShadows.png" alt="A+ Grass model mesh shadows" /></span>
+							<p> By default the <span class="asset-inline-note">Cast Shadows</span> property is enabled, allowing the grass to cast shadows in the scene. 
+							<p class="asset-note"> <b>Note:</b> This might be heavy on performance! </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_ModelShadowDifference.png" alt="A+ Grass model shadow difference" /></span>
+							<p>You should look into disabling it for each of the LOD levels, or any renderers if using a custom mesh.</p>
+						</div>
+
+						<div class="asset-content-panel">
+							<p> Before setting up the shader, add the <span class="asset-inline-note">Grass Manager</span> script to a new empty game object in your scene.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_manager.png" alt="A+ Grass manager" /></span>
+							<p>Without it, the grass shader will not function correctly. We will cover everything on Grass Manager later on after setting up the shader.</p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Grass Shader</h2>
+							<p> Start by creating a new material in your project and assign the shader <span class="asset-inline-note">4ydam/A+Grass</span> to it. You can assign the material to your grass mesh. Just drag and drop it onto the mesh.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_newMaterial.png" alt="A+ Grass material" /></span>
+							<p> You can then customize the material properties to achieve the desired look for your grass. 
+							<br />Let's cover each property. </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Texture Sample</h2>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_baseTexture.png" alt="A+ Grass Texture Sample" /></span>
+							<p> First thing, assign the texture of your choice on the <span class="asset-inline-note">Texture Sample</span> property. This will be the texture that is rendered as grass in your scene. You can use any 2D texture, but for best results use a texture with an alpha channel. </p>
+							<p class="asset-note"> <b>Note:</b> All of the variables have an [R] button which lets you reset them to their default values. </p>
+							<br />
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_baseTextureSprites.png" alt="A+ Grass Texture Sprites" /></span>
+							<p> There is 5 sample sprites that come with the package, so feel free to use one of these to start with.
+							<br /> You can find them in <span class="asset-inline-note">4ydam/A+Grass/Textures</span> </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_baseTextureApplied.png" alt="A+ Grass Texture Applied" /></span>
+							<p> For this setup I will use the first one <span class="asset-inline-note">Sprite_Grass01</span> texture. (The grass sprites included in this package are using a resolution of 1024x1024 pixels) </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_TextureSetup.png" alt="A+ Grass Texture Setup" /></span>
+							<p>For best results, the texture you want to sample should be set as a Sprite in <span class="asset-inline-note">Texture Type</span>. Set <span class="asset-inline-note">Wrap Mode</span> to Clamp and <span class="asset-inline-note">Filter Mode</span> to Point (no filter)</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_TextureSetupDifference.png" alt="A+ Grass Texture Setup Difference" /></span>
+							<p>Sprite ensures that if there is a transparent area in the texture, it will be rendered correctly with an alpha channel. Default setting is usually fine, but it sets the alpha/transparency on the image to black, just like a .JPEG file would. So whilst it is still transparent on the mesh, you can see bleeding of the texture, creating black edges.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_baseTextureTileX.png" alt="A+ Grass Texture Tile X" /></span>
+							<p>When you adjust <span class="asset-inline-note">Tiling</span> on the X axis, you should consider setting <span class="asset-inline-note">Wrap Mode</span> to Repeat on your texture sample. With that you will be able to tile the grass horizontally and have more, thinner blades. At a point they will be visibly stretched so adjust accordingly.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_baseTextureTileY.png" alt="A+ Grass Texture Tile Y" /></span>
+							<p>When adjusting <span class="asset-inline-note">Tiling</span> on the Y axis, you might want to set <span class="asset-inline-note">Wrap Mode</span> to Clamp on the texture sample. This will prevent the texture from repeating vertically, which can help maintain the appearance of shorter grass blades. It could however give interesting results if you experiment with different sprites, potentially one that repeats and goes all the way from bottom to the top.</p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Texture Ramp</h2>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_rampTexture.png" alt="A+ Grass Ramp Texture" /></span>
+							<p> The <span class="asset-inline-note">Texture Ramp</span> is used to control how the light affects the grass. Without one, the grass will be visibly brighter than other objects, specifically in a darker setting.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_rampTextureDifference01.png" alt="A+ Grass Ramp Texture Difference 01" /></span>
+							<br />
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_rampTextureDifference02.png" alt="A+ Grass Ramp Texture Difference 02" /></span>
+							<br />
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Colour</h2>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colour.png" alt="A+ Grass Colour" /></span>
+							<p> There is 2 ways of setting the colour of the grass. The base colour, and with use of the gradient. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourGradientDifference.png" alt="A+ Grass Colour Gradient Difference" /></span>
+
+							<br /> 1. <span class="asset-inline-note">Colour Tint</span> which sets the base of the grass and will create one solid colour. 
+							<br /> 2. If you tick <span class="asset-inline-note">Use Gradient</span>, the gradient options will appear, and overrride the base colour tint. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourGradientOverride.png" alt="A+ Grass Colour Gradient Override" /></span>
+							<p> You can adjust the top and bottom colours of the gradient to achieve the desired look for your grass. </p>
+							<p> <span class="asset-inline-note">Gradient Offset</span> allows you to shift the gradient up or down on the grass mesh, letting you to tune the visibility of the gradient. (changing position) </p>
+							<p> <span class="asset-inline-note">Gradient Contrast</span> lets you to adjust the contrast of the gradient, sharpening or softening the transition between the top and bottom colours. (changing size) </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Colour Variant</h2>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourVariant.png" alt="A+ Grass Colour Variant" /></span>
+							<p> Setting up a variant adds diversity to the grass, which is especially effective in a field of grass. It uses a noise texture to create a variation in colour across the grass surface. You can use one of the provided noise textures, or create your own. </p>
+							<p> <span class="asset-inline-note">Colour Noise Texture</span> lets you input the noise texture that will be applied to the grass. </p>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourVariantWrapMode.png" alt="A+ Grass Colour Variant Wrap Mode" /></span>
+							<p><b>Make sure to set the sampled texture to Repeat!</b> If you use your own noise texture, select it and set the <span class="asset-inline-note">Wrap Mode</span> to Repeat. Otherwise it will not tile correctly. </p>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourVariantNoiseScale.png" alt="A+ Grass Colour Variant Noise Scale" /></span>
+							<p> <span class="asset-inline-note">Colour Noise Scale</span> lets you scale the noise texture. Lower values are recommended, as it results in larger and more noticable coverage. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourVariantNoiseStrength.png" alt="A+ Grass Colour Variant Noise Strength" /></span>
+							<p> <span class="asset-inline-note">Colour Noise Strength</span> will adjust the intensity of the colour variant. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_colourVariantNoiseColour.png" alt="A+ Grass Colour Variant Noise Colour" /></span>
+							<p><span class="asset-inline-note">Color Noise</span> provides an ability to change and ultimetly override the base as well as the gradient colours on the grass. <span class="asset-inline-note">Low Colour</span> will affect dark areas, while <span class="asset-inline-note">High Colour</span> affects light areas on the noise texture. </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Interactivity</h2>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_interaction.png" alt="A+ Grass Interactivity" /></span>
+							<p> On the grass shader/material, you can adjust two parameters to control how the grass behaves when interacted with. Both should be adjusted alongside to get best results, and both values would be releatively low. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_interactionValues.png" alt="A+ Grass Interactivity Values" /></span>
+							<br /> 1. <span class="asset-inline-note">Interaction Strength</span> controls how much the grass bends when interacted with.
+							<br /> 2. <span class="asset-inline-note">Push Down Amount</span> controls how much the grass is pushed down when interacted with. </p>
+
+							<span class="asset-note"><b>Note:</b> For full interactive setup head to the <a href="../interactivity/"><b>Interactivity</b></a> page in the documentation.</span>
+							<br />
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Wind</h2>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_Wind.png" alt="A+ Grass Wind" /></span>
+							<p> There are two wind noise textures that you can use to simulate a more dynamic wind effect on the grass. It works by blending the two noise textures and can be adjusted for one of them to be more dominant, or using only just one. </p>
+							<p><span class="asset-inline-note">Wind Scroll</span> Controls the speed of the noise texture and how strong the wind effect is.</p>
+							<p><span class="asset-inline-note">Wind Jitter</span> Adds randomness of the wind effect, adding variation to the movement, which can make it feel more natural.</p>
+							
+							<p><b>2nd Wind</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_Wind2.png" alt="A+ Grass 2nd Wind" /></span>
+							<p> The second wind has the exact same setup as the first. However, it can be used as an additional layer to create a more fluid and dynamic effect. </p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_WindsBlend.png" alt="A+ Grass Winds Blend" /></span>
+							<br />
+							<p><b>Wind Blends</b></p>
+							<p> Use the <span class="asset-inline-note">Winds Blend</span> slider to adjust the use of the two winds. </p>
+							<ul>
+								<li>At value of 0, only the first wind will be used. </li>
+								<li>At value of 1, only the second wind will be used. </li>
+								<li>At value of 0.5, both winds will be blended equally. </li>
+							</ul>
+							<span class="asset-note"> <b>Recommended Setup:</b> Use the first wind as the main, global wind, and second wind for additional flow using a pattern with lower intensity. </span>
+							<br />
+						</div>
+							
+						<div class="asset-content-panel">
+							<h2>Perspective Correction</h2>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_perspectiveCorrection.png" alt="A+ Grass Perspective Correction" /></span>
+							<p> If you enable <span class="asset-inline-note">Perspective Correction</span>, the grass will adjust its orientation based on the camera's perspective. This gives better results for a top-down game making the closer patches of grass look towards the camera.</p>
+							<p><span class="asset-inline-note">Correction Strength</span> Controls the strength of the perspective correction effect. At value of 0, the effect is disabled.</p>
+							<p><span class="asset-inline-note">Correction Radius</span> Controls the starting point of the perspective correction effect when viewed from a top-down angle. Adjusting how far the effect reaches.</p>
+							<p><span class="asset-inline-note">Max Offset</span> Controls the maximum offset applied by the perspective correction effect, limiting the strength of the correction. </p>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_perspectiveCorrectionDifference.png" alt="A+ Grass Perspective Correction Difference" /></span>
+							<p> This helps fix the appearance of the grass from a top-down view, facing the camera, coming across as more dense with fewer empty spots. </p>
+							
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Rendering</h2>
+							
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_shader_rendering.png" alt="A+ Grass Rendering" /></span>
+							<p> <span class="asset-inline-note">Render Face</span> adjusts which side of the mesh get's rendered. By default in Unity it's Front, but in the A+ Grass shader by default it's set to Both. This ensures that all blades are visible from all angles. Depending on the setup of the mesh, if you use a custom one (especially for a top-down game) with a camera that doesn't rotate it would be setup to face one side, and you can change it to Front instead.</p>
+							<p>You can adjust the transparency with <span class="asset-inline-note">Alpha Cutoff</span> and change the strength of the alpha. Value of 0 will have no transparency and anything above that will start applying it. Generally no need to adjust this.</p>
+							<span class="asset-note"> <b>Note:</b> If you're using the 2022 version, set alpha cutoff to 1, otherwise you will see texture bleeding on your grass blades. (Inconsistent black outline)</span> </p>
+							<p><span class="asset-inline-note">Receive Shadows</span> lets the grass receive shadows from other objects in the scene. <b>Important!</b> This setting will do nothing if you have disabled Cast Shadows on the mesh in Mesh Renderer.</p>
+							
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Grass Manager</h2>
+							<p>The Grass Manager is responsible for managing all interactive grass elements in the scene. There is also global settings for the wind and recovery of the grass from interactions.</p>
+							<p><b>Wind Settings</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_windSettings.png" alt="A+ Grass manager wind settings" /></span>
+							<p>Wind Settings let you adjust the wind dynamically at runtime for a real weather effect. </p>
+							<p><span class="asset-inline-note">Wind Multipliers</span> let you control the speed of both winds setup within the material, working as a global override for all grass in the scene. Same goes for the <span class="asset-inline-note">Wind Direction</span> overriding the direction of the wind in world space.</p>
+							<p>Both the multipliers and direction settings can be adjusted in real-time at runtime to create dynamic weather effects. They are set as public variables in the Grass Manager script, so you can access and reference them in your own scripts where you can handle the wind behavior dynamically.</p>
+							<p>Public Variables:
+							<span class="asset-inline-note">globalWind1Multiplier </span>  <span class="asset-inline-note"> globalWind2Multiplier </span>  <span class="asset-inline-note"> globalWindDirection</span>
+							<p><b>Grass Recovery</b></p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_grassRecovery.png" alt="A+ Grass manager grass recovery" /></span>
+							<p>Grass Recovery settings allow you to control how the grass returns to its original state after being interacted with.</p>
+							<span class="asset-note">These settings are covered in the <a href="../interactivity/index.html"><b>Interactivity</b></a> section.</span>
+							<br />
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass manager gizmos" /></span>
+							<p>Grass Manager has a gizmos preview for the wind direction as well as the strength of both multipliers.</p>
+							<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_gizmosPreview.png" alt="A+ Grass manager gizmos preview" /></span>
+							<p>Blue represents the first wind and yellow second wind. The bigger the value, the longer the arrow.</p>
+
+						</div>
+
+						<div class="asset-content-panel">
+							<p>That covers the material and setting up the mesh with the A+ Grass Shader!
+							<br />
+							<br /> If you want to make it interactive, you will need to add the <span class="asset-inline-note">Grass Manager</span> and <span class="asset-inline-note">Grass Interactor</span> scripts into your scene, which requires further setup and understanding of values in these scripts.
+							<br />
+							<br /> For that, head to the <a href="../interactivity/"><b>Interactivity</b></a> page in the documentation, and get started with making your grass react to either the mouse or/and characters in the scene! </p>
 							</p>
 						</div>
 
 						<div class="asset-content-panel">
-							<h2>Grass Setup</h2>
-							<p>The package comes with ready prefabs that you can drag and drop into your scene.
+							<p>If you like the asset, please consider leaving a review on the Unity Asset Store! </p>
+							<a href="https://assetstore.unity.com/publishers/139274" target="_blank"><b>Leave A Review</b></a>
 							</p>
 						</div>
 					</div>
@@ -65,7 +276,9 @@
 		<script src="../../../assets/js/breakpoints.min.js"></script>
 		<script src="../../../assets/js/util.js"></script>
 		<script src="../../../assets/js/includes.js"></script>
-<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
 
 	</body>
 </html>
