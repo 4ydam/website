@@ -19,8 +19,8 @@
 			xxsmall:  [ null,      '360px'  ]
 		});
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
+	// Play initial animations once DOM is ready (don't wait for all images).
+		$(document).ready(function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);

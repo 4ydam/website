@@ -61,12 +61,12 @@
 								<h2>Grass Manager</h2>
 								<p>The Grass Manager is responsible for managing all interactive grass elements in the scene. There is also global settings for the wind and recovery of the grass from interactions.</p>
 								<p><b>Wind Settings</b></p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_windSettings.png" alt="A+ Grass Wind" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_manager_windSettings.png" alt="A+ Grass Wind" /></span>
 								<p>Wind Settings let you adjust the wind dynamically at runtime for a real weather effect. </p>
 								<span class="asset-note">These settings are covered in the <a href="../getting-started/"><b>Getting Started</b></a> section.</span>
 								<br />
 								<p><b>Grass Recovery</b></p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_manager_grassRecovery.png" alt="A+ Grass Recovery" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_manager_grassRecovery.png" alt="A+ Grass Recovery" /></span>
 								<p>Grass Recovery settings allow you to control how the grass returns to its original state after being interacted with. These are global values and will affect all of the grass in the scene.</p>
 								<p><span class="asset-inline-note">Recovery Speed</span> adjusts how quickly the grass returns to its original state after being interacted with.
 								<span class="asset-inline-note">Recovery Delay</span> adjusts the delay before the grass starts to recover after being interacted with.</p>
@@ -80,30 +80,30 @@
 								<h2>Grass Interactor</h2>
 								<p>The Grass Interactor is responsible for handling the interactions between the grass and other objects in the scene. It allows objects to affect the grass, bending and pushing it. You can have as many interactors in the scene, just make sure to add the <span class="asset-inline-note">Grass Interactor</span> component to each.</p>
 								<p><b>Interaction Settings</b></p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_interactSettings.png" alt="A+ Grass Interaction Settings" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_interactor_interactSettings.png" alt="A+ Grass Interaction Settings" /></span>
 								<p>These values are per interactor so each interactor can behave differently. </p>
 								<span class="asset-inline-note">Push Rate</span> acts as strength that gets applied to the grass when on top of the grass. This value accumulates and can intensify the push effect with continuous movement in the same area. </p>
 								<span class="asset-inline-note">Maximum Rate</span> limits how much of the push rate can be accumulated.</p>
 								<p><b>Motion Detection</b></p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_motionDetection.png" alt="A+ Grass Motion Detection" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_interactor_motionDetection.png" alt="A+ Grass Motion Detection" /></span>
 								<p>You can limit at what speed interaction takes place with <span class="asset-inline-note">Movement Threshold</span> But generally keep this value below 1, at low threshold to prevent any jitter as with value of 0 it will always keep updating the grass and pushing it based off interactor's position. Use gizmos to view this (It turns yellow when in motion)</p>
 								<p><span class="asset-inline-note">Detection Radius</span> determines the area around the interactor where it can detect and affect the grass. Adjusted depending on the size of your character/interactor.</p>
 								<p>If you need to change the position of where the interaction takes place use the <span class="asset-inline-note">Position Offset</span> to adjust the center of the detection radius.</p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Gizmos" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Gizmos" /></span>
 								<p>At the bottom you have the option to turn on/off the gizmos for the grass interactor to see the size of the detection radius, and where it is depending on the position offset.</p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmosPreview.png" alt="A+ Grass Gizmos Preview" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_interactor_gizmosPreview.png" alt="A+ Grass Gizmos Preview" /></span>
 							</div>
 							<div class="asset-content-panel">
 								<h2>Mouse Interaction Handler</h2>
 								<p>The Mouse Grass Interaction Handler provides data from the mouse position off the camera using a ray to allow an interactor to follow the mouse position and interact with the grass.</p>
 								<p><b>Setup</b></p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_mouseHandler_setup.png" alt="A+ Grass Mouse Handler Setup" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_mouseHandler_setup.png" alt="A+ Grass Mouse Handler Setup" /></span>
 								<p>Assign an empty game object with the <span class="asset-inline-note">Interactor</span> component to the <span class="asset-inline-note">Mouse Grass Interaction Handler</span>. This gameObject will follow the mouse position and interact with the grass where the ray hits.</p>
 								<p>Include inside the <span class="asset-inline-note">Interactive Layer</span> all of the layers you want the mouse handler to interact with.</p>
 								<p><span class="asset-inline-note">Distance</span> value determines how far the ray from the camera will reach.</p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Mouse Handler Gizmos" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_interactor_gizmos.png" alt="A+ Grass Mouse Handler Gizmos" /></span>
 								<p>At the bottom you have the option to turn on/off the gizmos for the mouse handler to preview the distance of the ray from the camera.</p>
-								<span class="image main asset-banner"><img src="../../../images/grass/grass_mouseHandler_gizmosPreview.png" alt="A+ Grass Mouse Handler Gizmos Preview" /></span>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_mouseHandler_gizmosPreview.png" alt="A+ Grass Mouse Handler Gizmos Preview" /></span>
 							</div>
 
 							<div class="asset-content-panel">
