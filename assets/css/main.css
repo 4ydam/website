@@ -4010,6 +4010,15 @@ input, select, textarea {
 		transition: opacity 0.2s;
 	}
 
+	.screenshot-thumb.screenshot-thumb-full {
+		width: 100%;
+		overflow: visible;
+	}
+
+	.screenshot-thumb.screenshot-thumb-full:hover {
+		outline-offset: 2px;
+	}
+
 		.screenshot-thumb:hover {
 			outline: solid 2px #ff7a03;
 			outline-offset: -2px;

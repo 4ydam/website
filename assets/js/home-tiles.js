@@ -1,19 +1,18 @@
 (function () {
 	'use strict';
 
-	if (!document.body.classList.contains('home-page') && !document.body.classList.contains('assets-page')) {
+	if (!document.body.classList.contains('home-page')) {
 		return;
 	}
 
-	var cards = document.querySelectorAll('.home-page .tiles article, .assets-page .tiles article');
+	var cards = document.querySelectorAll('.home-page .tiles article');
 	if (!cards.length) {
 		return;
 	}
-	var isAssetsPage = document.body.classList.contains('assets-page');
-	var MAX_TILT_X = isAssetsPage ? 4.5 : 8;
-	var MAX_TILT_Y = isAssetsPage ? 3 : 5;
-	var MAX_SHIFT_X = isAssetsPage ? 7 : 16;
-	var MAX_SHIFT_Y = isAssetsPage ? 4.5 : 10;
+	var MAX_TILT_X = 8;
+	var MAX_TILT_Y = 5;
+	var MAX_SHIFT_X = 16;
+	var MAX_SHIFT_Y = 10;
 	var RESPONSE_CURVE = 0.55;
 
 	function curved(value) {

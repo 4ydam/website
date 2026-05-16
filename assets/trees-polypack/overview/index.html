@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Trees PolyPack Overview</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title"> 
+								<h2>Documentation</h2>
+							</div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a class="is-active" href="../overview/">Overview</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+						<div class="asset-content-stack">
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/trees/trees_banner.png" alt="Trees PolyPack banner" /></span>
+
+							<div class="asset-content-panel">
+								<div class="asset-title-row">
+									<h2>Trees PolyPack</h2>
+									<span class="asset-price">Coming Soon</span>
+								</div>
+
+								<p class="asset-meta-row"><span class="asset-tag">3D</span><span class="asset-tag">Assets</span></p>
+
+								<p>A massive collection of all kinds and shapes of low-poly trees for use in your projects.
+								<br />
+								<br />Includes a variety of tree types and sizes, optimized for real-time use with clean topology and customizable materials.
+								</p>
+
+								<p class="asset-link-row"><a href="https://assetstore.unity.com/publishers/139274" target="_blank" rel="noopener noreferrer">View In Unity Asset Store</a></p>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Preview</h2>
+								<a href="../../../images/trees/trees00.png" class="screenshot-thumb screenshot-thumb-full">
+									<span class="image main asset-banner"><img loading="lazy" src="../../../images/trees/trees00.png" alt="Trees PolyPack screenshot" /></span>
+								</a>
+                            </br>
+                                <a href="../../../images/trees/trees01.png" class="screenshot-thumb screenshot-thumb-full">
+									<span class="image main asset-banner"><img loading="lazy" src="../../../images/trees/trees01.png" alt="Trees PolyPack screenshot" /></span>
+								</a>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Contents</h2>
+								<p>In the package you will find the following folders:</p>
+								<ul>
+									<li><strong>Models</strong> — Low-poly tree meshes in various shapes and sizes</li>
+									<li><strong>Materials</strong> — Stylized materials ready to use or customize</li>
+									<li><strong>Prefabs</strong> — Ready to drag and drop tree prefabs</li>
+									<li><strong>Textures</strong> — A few example textures for customization</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<div id="screenshot-lightbox" class="screenshot-lightbox">
+			<span class="lightbox-close">&times;</span>
+			<img loading="lazy" class="lightbox-img" alt="Screenshot preview" />
+		</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/includes.js"></script>
+			<script src="../../../assets/js/doc-search.js"></script>
+			<script src="../../../assets/js/section-links.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+			<script>
+				(function() {
+					var lightbox = document.getElementById('screenshot-lightbox');
+					var lightboxImg = lightbox.querySelector('.lightbox-img');
+					var closeBtn = lightbox.querySelector('.lightbox-close');
+
+					document.querySelectorAll('.screenshot-thumb').forEach(function(thumb) {
+						thumb.addEventListener('click', function(e) {
+							e.preventDefault();
+							lightboxImg.src = this.href;
+							lightboxImg.alt = this.querySelector('img').alt;
+							lightbox.classList.add('is-visible');
+						});
+					});
+
+					closeBtn.addEventListener('click', function() {
+						lightbox.classList.remove('is-visible');
+					});
+
+					lightbox.addEventListener('click', function(e) {
+						if (e.target === lightbox) {
+							lightbox.classList.remove('is-visible');
+						}
+					});
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape') {
+							lightbox.classList.remove('is-visible');
+						}
+					});
+				})();
+			</script>
+
+	</body>
+</html>
