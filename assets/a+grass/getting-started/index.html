@@ -51,7 +51,7 @@
 						<div class="asset-content-panel">
 							<h2>Video Tutorial</h2>
 							<div class="video-embed">
-								<iframe src="https://www.youtube.com/watch?v=0UC_NP39AtU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								<iframe src="https://www.youtube.com/watch?v=RVkVp2Qrc6w" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 							</div>
 						</div>
 
@@ -111,8 +111,8 @@
 							<p class="asset-note"> <b>Note:</b> All of the variables have an [R] button which lets you reset them to their default values. </p>
 							<br />
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_baseTextureSprites.png" alt="A+ Grass Texture Sprites" /></span>
-							<p> There is 5 sample sprites that come with the package, so feel free to use one of these to start with.
-							<br /> You can find them in <span class="asset-inline-note">4ydam/A+Grass/Textures</span> </p>
+							<p> There is 6 sample sprites that come with the package, 5 grass textures and 1 flower texture, so feel free to use one of these to start with. </p>
+							You can find them in <span class="asset-inline-note">4ydam/A+Grass/Textures</span> </p>
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_baseTextureApplied.png" alt="A+ Grass Texture Applied" /></span>
 							<p> For this setup I will use the first one <span class="asset-inline-note">Sprite_Grass01</span> texture. (The grass sprites included in this package are using a resolution of 1024x1024 pixels) </p>
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_TextureSetup.png" alt="A+ Grass Texture Setup" /></span>
@@ -179,6 +179,16 @@
 						</div>
 
 						<div class="asset-content-panel">
+							<h2>Trail</h2>
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_trail.png" alt="A+ Grass Trail" /></span>
+							<p> To enchance the visibility of the grass being pushed/bent you can set a colour tint for the trail. </p>
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_trailView.png" alt="A+ Grass Trail View" /></span>
+							<br /> 1. <span class="asset-inline-note">Colour</span> can be adjusted for both top and bottom parts of the grass blades just like with a gradient for the base colour of the grass.
+							<br /> 2. <span class="asset-inline-note">Trail Strength</span> lets you disable the trail if set to 0, otherwise you can change how visible the colour of the trail is. It naturally is fading out back to the base colour as the grass is recovering .</p>
+
+						</div>
+
+						<div class="asset-content-panel">
 							<h2>Wind</h2>
 							
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_Wind.png" alt="A+ Grass Wind" /></span>
@@ -223,7 +233,8 @@
 							<p> <span class="asset-inline-note">Render Face</span> adjusts which side of the mesh get's rendered. By default in Unity it's Front, but in the A+ Grass shader by default it's set to Both. This ensures that all blades are visible from all angles. Depending on the setup of the mesh, if you use a custom one (especially for a top-down game) with a camera that doesn't rotate it would be setup to face one side, and you can change it to Front instead.</p>
 							<p>You can adjust the transparency with <span class="asset-inline-note">Alpha Cutoff</span> and change the strength of the alpha. Value of 0 will have no transparency and anything above that will start applying it. Generally no need to adjust this.</p>
 							<span class="asset-note"> <b>Note:</b> If you're using the 2022 version, set alpha cutoff to 1, otherwise you will see texture bleeding on your grass blades. (Inconsistent black outline)</span> </p>
-							<p><span class="asset-inline-note">Receive Shadows</span> lets the grass receive shadows from other objects in the scene. <b>Important!</b> This setting will do nothing if you have disabled Cast Shadows on the mesh in Mesh Renderer.</p>
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_recieveShadowsShowcase.png" alt="A+ Grass Shadows" /></span>
+							<p><span class="asset-inline-note">Receive Shadows</span> lets the grass receive shadows from other objects in the scene.</p>
 							
 						</div>
 
@@ -259,8 +270,8 @@
 						</div>
 
 						<div class="asset-content-panel">
-							<p>If you like the asset, please consider leaving a review on the Unity Asset Store! </p>
-							<a href="https://assetstore.unity.com/publishers/139274" target="_blank"><b>Leave A Review</b></a>
+							<p>If you like the asset, please consider leaving a review! </p>
+							<a href="https://4ydam.itch.io/unity-a-grass-shader" target="_blank"><b>Leave A Review</b></a>
 							</p>
 						</div>
 					</div>

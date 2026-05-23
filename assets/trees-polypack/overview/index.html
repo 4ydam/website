@@ -50,18 +50,12 @@
 								<br />
 								<br />Includes a variety of tree types and sizes, optimized for real-time use with clean topology and customizable materials.
 								</p>
-
-								<p class="asset-link-row"><a href="https://assetstore.unity.com/publishers/139274" target="_blank" rel="noopener noreferrer">View In Unity Asset Store</a></p>
 							</div>
 
 							<div class="asset-content-panel">
 								<h2>Preview</h2>
 								<a href="../../../images/trees/trees00.png" class="screenshot-thumb screenshot-thumb-full">
 									<span class="image main asset-banner"><img loading="lazy" src="../../../images/trees/trees00.png" alt="Trees PolyPack screenshot" /></span>
-								</a>
-                            </br>
-                                <a href="../../../images/trees/trees01.png" class="screenshot-thumb screenshot-thumb-full">
-									<span class="image main asset-banner"><img loading="lazy" src="../../../images/trees/trees01.png" alt="Trees PolyPack screenshot" /></span>
 								</a>
 							</div>
 
@@ -84,8 +78,12 @@
 		</div>
 
 		<div id="screenshot-lightbox" class="screenshot-lightbox">
-			<span class="lightbox-close">&times;</span>
-			<img loading="lazy" class="lightbox-img" alt="Screenshot preview" />
+			<div class="lightbox-content">
+				<span class="lightbox-close">&times;</span>
+				<button type="button" class="lightbox-prev" aria-label="Previous image">&#8249;</button>
+				<img loading="lazy" class="lightbox-img" alt="Screenshot preview" />
+				<button type="button" class="lightbox-next" aria-label="Next image">&#8250;</button>
+			</div>
 		</div>
 
 		<!-- Scripts -->
@@ -102,14 +100,34 @@
 					var lightbox = document.getElementById('screenshot-lightbox');
 					var lightboxImg = lightbox.querySelector('.lightbox-img');
 					var closeBtn = lightbox.querySelector('.lightbox-close');
+					var prevBtn = lightbox.querySelector('.lightbox-prev');
+					var nextBtn = lightbox.querySelector('.lightbox-next');
+					var thumbs = Array.from(document.querySelectorAll('.screenshot-thumb'));
+					var currentIndex = 0;
 
-					document.querySelectorAll('.screenshot-thumb').forEach(function(thumb) {
+					function showImage(index) {
+						currentIndex = (index + thumbs.length) % thumbs.length;
+						var thumb = thumbs[currentIndex];
+						lightboxImg.src = thumb.href;
+						lightboxImg.alt = thumb.querySelector('img').alt;
+					}
+
+					thumbs.forEach(function(thumb, i) {
 						thumb.addEventListener('click', function(e) {
 							e.preventDefault();
-							lightboxImg.src = this.href;
-							lightboxImg.alt = this.querySelector('img').alt;
+							showImage(i);
 							lightbox.classList.add('is-visible');
 						});
+					});
+
+					prevBtn.addEventListener('click', function(e) {
+						e.stopPropagation();
+						showImage(currentIndex - 1);
+					});
+
+					nextBtn.addEventListener('click', function(e) {
+						e.stopPropagation();
+						showImage(currentIndex + 1);
 					});
 
 					closeBtn.addEventListener('click', function() {
@@ -123,9 +141,10 @@
 					});
 
 					document.addEventListener('keydown', function(e) {
-						if (e.key === 'Escape') {
-							lightbox.classList.remove('is-visible');
-						}
+						if (!lightbox.classList.contains('is-visible')) return;
+						if (e.key === 'Escape') lightbox.classList.remove('is-visible');
+						if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+						if (e.key === 'ArrowRight') showImage(currentIndex + 1);
 					});
 				})();
 			</script>

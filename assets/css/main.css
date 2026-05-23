@@ -2850,12 +2850,12 @@ input, select, textarea {
 
 		.home-nav-item {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			align-items: center;
 			justify-content: center;
 			gap: 1.2em;
 			flex: 1 1 0;
-			padding: 3em 2.5em;
+			padding: 1.5em 2.5em;
 			background: #ffffff;
 			border: solid 1.5px #d8d8d8;
 			border-radius: 20px;
@@ -2873,8 +2873,8 @@ input, select, textarea {
 		}
 
 		.home-nav-item img {
-			width: 8em;
-			height: 8em;
+			width: 4em;
+			height: 4em;
 			object-fit: contain;
 			display: block;
 			transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -4003,7 +4003,7 @@ input, select, textarea {
 
 	.screenshot-thumb {
 		display: block;
-		width: 120px;
+		flex: 1 1 120px;
 		border-radius: 4px;
 		overflow: hidden;
 		cursor: pointer;
@@ -4012,11 +4012,242 @@ input, select, textarea {
 
 	.screenshot-thumb.screenshot-thumb-full {
 		width: 100%;
+		flex-basis: 100%;
 		overflow: visible;
 	}
 
 	.screenshot-thumb.screenshot-thumb-full:hover {
 		outline-offset: 2px;
+	}
+
+/* Discord Community Section */
+
+	.discord-section {
+		margin-top: 3em;
+		padding-top: 3em;
+		border-top: solid 1px #e8e8e8;
+		width: 100%;
+	}
+
+	.discord-promo {
+		display: flex;
+		border-radius: 16px 16px 0 0;
+		overflow: hidden;
+		margin-bottom: 0;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+	}
+
+	.discord-promo-image {
+		flex: 0 0 40%;
+		min-height: 0;
+		max-height: 180px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.discord-promo-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+	}
+
+	.discord-section-title {
+		font-size: 1.6em;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 1em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4em;
+		color: #1a1a1a;
+	}
+
+	.discord-join-row {
+		display: block;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 2em;
+	}
+
+	.discord-promo-content {
+		background: #ffffff;
+		flex: 1;
+		padding: 1.5em 1.5em;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.25em;
+	}
+
+	.discord-promo-content h2 {
+		font-size: 1.8em;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		color: #1a1a1a;
+	}
+
+	.discord-badge {
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+		background: #5865F2;
+		border-radius: 50%;
+		text-align: center;
+		vertical-align: middle;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	.discord-badge::before {
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Font Awesome 5 Brands';
+		padding: 0em 0.33em;
+		font-weight: 400;
+		content: '\f392';
+		color: white;
+		font-size: 18px;
+		line-height: 36px;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.discord-promo-content > p {
+		color: #555;
+		line-height: 1.7;
+		font-size: 0.95em;
+		margin: 0;
+	}
+
+	.discord-join-btn {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+		background: #1a1a1a;
+		color: white !important;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 0.8em 2em;
+		border-radius: 0 0 16px 16px;
+		text-decoration: none;
+		font-size: 0.85em;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+
+	.discord-join-btn:hover {
+		background: #ff7a03;
+		color: white !important;
+	}
+
+	.discord-benefits h3 {
+		font-size: 1.15em;
+		font-weight: 700;
+		margin-bottom: 2em;
+		color: #1a1a1a;
+	}
+
+	.discord-benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2em;
+	}
+
+	.discord-benefit {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6em;
+		padding-bottom: 1.5em;
+		border-bottom: solid 1.5px #e8e8e8;
+	}
+
+	.benefit-num {
+		font-size: 1.1em;
+		font-weight: 700;
+		color: #1a1a1a;
+	}
+
+	.discord-benefit p {
+		font-size: 0.88em;
+		color: #666;
+		line-height: 1.6;
+	}
+
+	/* Dark mode */
+	body.dark-mode .discord-section {
+		border-top-color: rgba(255,255,255,0.1);
+	}
+
+	body.dark-mode .discord-join-btn {
+		background: #ffffff;
+		color: #1a1a1a !important;
+	}
+
+	body.dark-mode .discord-join-btn:hover {
+		background: #ff7a03;
+		color: white !important;
+	}
+
+	body.dark-mode .discord-section-title {
+		color: #f0f0f0;
+	}
+
+	body.dark-mode .discord-promo-content {
+		background: #1e1e1e;
+	}
+
+	body.dark-mode .discord-promo-content h2 {
+		color: #f0f0f0;
+	}
+
+	body.dark-mode .discord-promo-content > p {
+		color: #aaa;
+	}
+
+	body.dark-mode .discord-benefits h3 {
+		color: #f0f0f0;
+	}
+
+	body.dark-mode .benefit-num {
+		color: #f0f0f0;
+	}
+
+	body.dark-mode .discord-benefit {
+		border-bottom-color: rgba(255,255,255,0.1);
+	}
+
+	body.dark-mode .discord-benefit p {
+		color: #999;
+	}
+
+	/* Responsive */
+	@media screen and (max-width: 736px) {
+		.discord-promo {
+			flex-direction: column;
+		}
+
+		.discord-promo-image {
+			max-height: 200px;
+		}
+
+		.discord-promo-content {
+			max-height: none;
+		}
+
+		.discord-benefits-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.discord-benefits-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 		.screenshot-thumb:hover {
@@ -4048,27 +4279,75 @@ input, select, textarea {
 			display: flex;
 		}
 
+		.screenshot-lightbox .lightbox-content {
+			position: relative;
+			max-width: 80vw;
+			max-height: 85vh;
+		}
+
 		.screenshot-lightbox .lightbox-img {
-			max-width: 90%;
-			max-height: 90%;
+			display: block;
+			max-width: 100%;
+			max-height: 85vh;
 			border-radius: 6px;
 			box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 		}
 
 		.screenshot-lightbox .lightbox-close {
 			position: absolute;
-			top: 20px;
-			right: 30px;
+			top: -1.2em;
+			right: -0.1em;
 			font-size: 2.5em;
 			color: #fff;
 			cursor: pointer;
 			line-height: 1;
 			transition: color 0.2s;
+			z-index: 1;
 		}
 
 			.screenshot-lightbox .lightbox-close:hover {
 				color: #ff7a03;
 			}
+
+		.screenshot-lightbox .lightbox-prev,
+		.screenshot-lightbox .lightbox-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			appearance: none;
+			-webkit-appearance: none;
+			background: none;
+			border: none;
+			outline: none;
+			box-shadow: none;
+			color: #fff;
+			font-size: 6em;
+			font-weight: 100;
+			line-height: 1;
+			width: 0.6em;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			cursor: pointer;
+			transition: color 0.2s;
+			text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+			z-index: 1;
+		}
+
+		.screenshot-lightbox .lightbox-prev::after,
+		.screenshot-lightbox .lightbox-next::after {
+			content: '';
+			position: absolute;
+			inset: -0.3em -0.5em;
+		}
+
+		.screenshot-lightbox .lightbox-prev { right: calc(100% + 0.2em); }
+		.screenshot-lightbox .lightbox-next { left: calc(100% + 0.4em); }
+
+		.screenshot-lightbox .lightbox-prev:hover,
+		.screenshot-lightbox .lightbox-next:hover {
+			color: #ff7a03;
+		}
 
 	@media screen and (max-width: 736px) {
 		.screenshot-thumb {
@@ -4868,3 +5147,37 @@ input, select, textarea {
 			}
 
 		}
+/* ===== Card link button ===== */
+
+.roadmap-card-link {
+    display: inline-block;
+    padding: 0.3em 0.85em;
+    border: solid 1.5px #333333;
+    border-radius: 4px;
+    background: #333333;
+    color: #ffffff !important;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.roadmap-card-link:hover {
+    background: #ff7a03 !important;
+    border-color: #ff7a03 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .roadmap-card-link {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #000000 !important;
+}
+
+body.dark-mode .roadmap-card-link:hover {
+    background: #ff7a03 !important;
+    border-color: #ff7a03 !important;
+    color: #ffffff !important;
+}
