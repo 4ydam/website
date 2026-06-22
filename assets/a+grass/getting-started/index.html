@@ -173,6 +173,9 @@
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_interactionValues.png" alt="A+ Grass Interactivity Values" /></span>
 							<br /> 1. <span class="asset-inline-note">Interaction Strength</span> controls how much the grass bends when interacted with.
 							<br /> 2. <span class="asset-inline-note">Push Down Amount</span> controls how much the grass is pushed down when interacted with. </p>
+							
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_interactionBendPivot.png" alt="A+ Grass Interactivity Bend Pivot" /></span>
+							<p>Use Bend Pivot Offset to adjust the pivot of your grass and how it will bend when interacted with. It might need tweaking with custom models/meshes with multiple faces (tall or more detailed/shaped mesh) </p>
 
 							<span class="asset-note"><b>Note:</b> For full interactive setup head to the <a href="../interactivity/"><b>Interactivity</b></a> page in the documentation.</span>
 							<br />
@@ -223,7 +226,19 @@
 							
 							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_perspectiveCorrectionDifference.png" alt="A+ Grass Perspective Correction Difference" /></span>
 							<p> This helps fix the appearance of the grass from a top-down view, facing the camera, coming across as more dense with fewer empty spots. </p>
+						</div>
+
+						<div class="asset-content-panel">
+							<h2>Distance Fade</h2>
 							
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_distanceFade.png" alt="A+ Grass Distance Fade" /></span>
+							<p> If you enable <span class="asset-inline-note">Distance Fade</span>, the grass will gradually fade out based on the distance from the main camera. This can be used on top of, or instead of the LOD system, just remember that the prefabs/examples included have the LOD on and you can adjust or switch either.</p>
+							<p><span class="asset-inline-note">Fade Mode</span> Provides two options. Smooth Fade & Dither Fade. Smooth Fade is a clean cut, and Dither Fade which creates a more gradual transition using a dithering/pixel pattern.</p>
+
+							<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_shader_distanceFadeDifference.png" alt="A+ Grass Distance Fade Difference" /></span>
+							<p><span class="asset-inline-note">Fade Start</span> Controls the distance at which the grass starts to fade out.
+							<span class="asset-inline-note">Fade End</span> Controls the distance at which the grass is completely faded out.</p>
+
 						</div>
 
 						<div class="asset-content-panel">

@@ -44,6 +44,12 @@
 								<p>This page covers things that might cause problems or unexpected behavior in the A+ Grass asset.</p>
 							</div>
 							<div class="asset-content-panel">
+								<h2>"Grass Interaction Glitching In Wider View"</h2>
+								<p>It most likely is because your <span class="asset-inline-note">Active Area Size</span> inside <span class="asset-inline-note">Grass Manager</span> is too small for the current view. Increase the Active Area Size to cover a larger area and the issue should be resolved.</p>
+								<p>Just make sure to be aware of the performance impact when increasing the Active Area Size.</p>
+							</div>
+
+							<div class="asset-content-panel">
 								<h2>"Grass Is Darker Than Expected"</h2>
 								<p>It could happen on the package import when first trying the asset due to compatibility of all Rendering Paths and not being assigned to the correct one on import. Just go to your project's Settings folder and on your <span class="asset-inline-note">Renderer Data > Rendering</span>, swap <span class="asset-inline-note">Rendering Path</span> to a different one and back and it should fix it. </p>
 								<p>Otherwise, make sure that your material setup is correct, check your Texture Ramp, Colour, or Colour Variant and if you're not just overriding your base colour with another.</p>
