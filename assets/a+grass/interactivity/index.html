@@ -79,8 +79,8 @@
 								<span class="asset-note"><b>Recommended Settings: </b> For natural behavior, use low values for both Recovery Speed and Recovery Delay.</span>
 								<br />
 								<p><b>Runtime Changes</b></p>
-							    <span class="asset-note"> <b>Important!</b> On Start, a method called <span class="asset-inline-note">FindGrass( )</span> is executed, which finds all of the grass in the scene to make it interactable.</span></p>
-								<p>If you want to add/change grass at runtime, you can call the <span class="asset-inline-note">FindGrass</span> method again to update the interactive grass elements as it is a public method. Do it from any script in your project, just reference the <span class="asset-inline-note">Grass Manager</span> script, and run the <span class="asset-inline-note">grassManager.FindGrass( );</span> method.</p>
+							    <span class="asset-note"> <b>Important!</b> There is a method called <span class="asset-inline-note">ResetGrass( )</span> which Resets Grass Data.</span></p>
+								<p>If you want to change grass at runtime, you can call <span class="asset-inline-note">ResetGrass</span> which is inside of the <span class="asset-inline-note">Grass Manager</span> script. You can see an example of this inside of Demo01 scene, with this method being called inside the Canvas on the buttons that switch the grass fields. Without it, when you switch between the fields whilst interacted and bent grass, that bend data will stay and transfer to the new field.</p>
 							</div>
 							<div class="asset-content-panel">
 								<h2>Grass Interactor</h2>
