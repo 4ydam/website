@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>A+ Grass Grass Animator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title"><h2>Documentation</h2></div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a class="is-active" href="../grass-animator/">Grass Animator</a></li>
+									<li><a href="../placement-tool/">Placement Tool</a></li>
+									<li><a href="../issues/">Issues</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+						<div class="asset-content-stack">
+
+							<div class="asset-content-panel">
+								<div class="asset-title-row">
+									<h2>Grass Animator</h2>
+									<span class="asset-price">NEW</span>
+								</div>
+								<p>Grass Animator lets you animate A+ Grass interactions along configurable paths.</p>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Quick Setup</h2>
+								<p>To get started with Grass Animator, create a new GameObject in your scene and add <span class="asset-inline-note">Grass Animator</span> component to it. You can start adding path points using the shown buttons, and adjust their position in scene view/window. When you enter playmode you can test the animation!</p> 
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Frame Animations</h2>
+								<p>There is no point re-inventing the wheel. For frame animations to adjust the interactor's scale, rotation and so on use the Unity's Animator and Animation windows. You can adjust the Transform values as well as the variables within the Interactor component.</p>
+
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Grass Animator</h2>
+								<p>To get started create a new GameObject, and add the <span class="asset-inline-note">Grass Animator</span> component to it.</p>
+								
+								<p><b>Animation Settings</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_animationSettings.png" alt="A+ Grass Animator Animation" /></span>
+								<p>First thing on Grass Animator is the Animation Settings. You have 3 buttons that let you Play, Pause and Stop the animation during playtime. You also have a Current Time slider for preview of what stage the animation is on. These are useful when testing animations when in play mode.</p>
+								<p class="asset-note"> <b>Note:</b> For performance purposes it is not updated often and so it doesn't slide smoothly whilst playing. This is only a preview in editor, and does not affect smoothness of the actual animation.</p>
+								</br>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_animationSettings2.png" alt="A+ Grass Animator Animation" /></span>
+								<p>If you want the animation to start playing automatically, toggle <span class="asset-inline-note">Play On Enable</span> and it will start when in play mode. Adjust <span class="asset-inline-note">Playback Speed</span> slider to change how quick the animation is. 
+								<p>You can change <span class="asset-inline-note">Playback Mode</span> into 3 settings:</p>
+								<ul>
+									<li>Once - The animation will play until it reaches the end and will stop.</li>
+									<li>Loop - The animation will continuously loop.</li>
+									<li>Ping Pong - The animation will reach the end and then play backward, on repeat.</li>
+								</ul>
+								<p><span class="asset-inline-note">Hidden Interactors</span> can be toggled to enable grass interactors interaction only when in motion. By default (when off) interactors will always interact with the grass and push/bend it when moved in world space. (Look at Demo05 scene and Attacks example for context)</p>
+								
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_animatedInteractors.png" alt="A+ Grass Animator Animated Interactors" /></span>
+								By default, when you create a Grass Animator, it will automatically create the first interactor and call it <span class="asset-inline-note">AnimatedGrassInteractor</span> set as first element in the list. You can have as many animated interactors that follow the path, jsut duplicate it or create a new one and assign it to the list.</p>
+								You can set a <span class="asset-inline-note">Path Offset</span> for each interactor to start at a different point along the path. Toggle <span class="asset-inline-note">Orient To Path</span> to make the interactor align with the path's direction facing forward. And if neededm, adjust the <span class="asset-inline-note">World Position Offset</span> per interactor.</p>
+								</br>
+
+								<p><b>Path Setup</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_pathSetup.png" alt="A+ Grass Animator Path Setup" /></span>
+								The Grass Animator works by animating interactors along path. <span class="asset-inline-note">Add Point</span> button will add a new point to the path. This will be a new GameObject set as a child of GrassAnimator. <span class="asset-inline-note">Remove Last</span> button will remove the last point in the path. <span class="asset-inline-note">Clear All</span> button will remove all points in the path.</p>
+								</br>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_pathMode.png" alt="A+ Grass Animator Path Mode" /></span>
+								You can change the <span class="asset-inline-note">Path Mode</span> to either Linear or Curved. Linear will make the path go straight from point to point, while Curved will make the path curve and smoothly interpolate between points.</p>
+								There is a <span class="asset-inline-note">Global Falloff</span> setting that will affect all points in the path and is set as from start to finish of the animation. You can also adjust falloffs per point inside Path Points.</p>
+								
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_pathPoints.png" alt="A+ Grass Animator Path Points" /></span>
+								Each path point has its own settings. You can adjust the <span class="asset-inline-note">Falloff</span> make the interactors pause if toggled <span class="asset-inline-note">Stop On Reached</span> point and adjust the <span class="asset-inline-note">Cooldown</span> for duration of the stop.</p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_pathPreview.png" alt="A+ Grass Animator Path Preview" /></span>
+								You can also set off events using <span class="asset-inline-note">On Point Reached</span> Unity Event, which will trigger when an interactor reaches that point.</p>
+								
+								<p><b>Gizmos</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_animator_gizmos.png" alt="A+ Grass Animator Gizmos" /></span>
+								Like with everything in this asset, you can enable gizmos and adjust the colours of the path of the Grass Animator. </p>
+							</div>
+
+							</div>
+						</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/includes.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
+	</body>
+</html>

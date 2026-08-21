@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>A+ Grass Placement Tool</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="../../../images/logo-WhiteOnBlack.png" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload assets-page asset-content-page">
+		<div id="wrapper">
+			<div data-include="../../../assets/partials/header.html"></div>
+
+			<div id="main">
+				<div class="inner">
+					<section class="asset-content-layout">
+						<aside class="asset-side-menu">
+							<div class="doc-search">
+								<input type="text" class="doc-search-input" placeholder="Search page..." aria-label="Search page" />
+								<span class="doc-search-count"></span>
+								<button type="button" class="doc-search-prev" aria-label="Previous match"></button>
+								<button type="button" class="doc-search-next" aria-label="Next match"></button>
+							</div>
+							<div class="asset-side-menu-title"><h2>Documentation</h2></div>
+							<div class="asset-side-menu-links">
+								<ul>
+									<li><a href="../overview/">Overview</a></li>
+									<li><a href="../technical/">Technical</a></li>
+									<li><a href="../getting-started/">Getting Started</a></li>
+									<li><a href="../interactivity/">Interactivity</a></li>
+									<li><a href="../grass-animator/">Grass Animator</a></li>
+									<li><a class="is-active" href="../placement-tool/">Placement Tool</a></li>
+									<li><a href="../issues/">Issues</a></li>
+									<li><a href="../changelog/">Changelog</a></li>
+								</ul>
+							</div>
+						</aside>
+
+							<div class="asset-content-stack">
+								<div class="asset-content-panel">
+									<div class="asset-title-row">
+									<h2>Placement Tool</h2>
+									<span class="asset-price">NEW</span>
+									</div>
+									<p>Placement Tool provides placing of A+ Grass prefabs in your scenes. This can also be used for other prefabs in your project, and help boost productivity and provide an easier, more efficient world building.</p>
+							</div>
+							
+							<div class="asset-content-panel">
+								<h2>Getting Started</h2>
+								<p>The placement tool can be accesssed from the menu bar at the top of the Unity editor.
+								<br /> <p>Go to <span class="asset-inline-note">Tools > 4ydam/A+ Grass/Grass Placement Tool</span>
+								This will open up a new window accessing Placement Tool.</p>
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Prefab Palettes</h2>
+								<p>To start, create a new palette by clicking the <span class="asset-inline-note">New</span> button in Palette section. This will create a new palette and you can start adding prefabs to it.</p> 
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_palette.png" alt="A+ Grass Placement Tool" /></span>
+								<p>You can drag any prefab from your project into the palette, so it doesn't just have to be used for grass placement, but any objects you want to place in your scene. You can create however many palettes in your project and switch between them using the dropdown.</p>
+								<p>If your palette is not showing click <span class="asset-inline-note">Refresh</span> button. If you want to get rid of a palette use <span class="asset-inline-note">Remove</span> button.</p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_testPalette.png" alt="A+ Grass Placement Tool Test" /></span>
+								<p>Before painting/placing prefabs in your scene, you need to first select which ones you want to use. You can do so by left clicking on any of the prefabs visible in the palette preview. If selected it will have a green outline. 
+								<p>You can select multiple prefabs at once, which will select one at random when painting. You can de-select prefabs by clicking on them again, or using <span class="asset-inline-note">Clear Selection</span> button to deselect all.</p>
+								<p class="asset-note"> <b>Watch Out:</b> Clear Palette button will remove all prefabs from the palette. </p>
+								
+							</div>
+
+							<div class="asset-content-panel">
+								<h2>Tools</h2>
+								<p>There is 3 tools in Grass Placement Tool.
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_tools.png" alt="A+ Grass Placement Tool Tools" /></span>
+								Click and select one of the tools to enable/use it. When selected, click again to disable it.</p>
+
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_toolsGeneralSettings.png" alt="A+ Grass Placement Tool General Settings" /></span>
+								In General Settings you can set what GameObject will be used as a <span class="asset-inline-note">Parent</span> for placed prefabs. If left empty, one will be created automatically. Additionally you can set what <span class="asset-inline-note">Surface Layers</span> you can paint on, including or excluding set layers.</p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_alignment.png" alt="A+ Grass Placement Tool Alignment" /></span>
+								When using either Pin or Brush, you will get additional settings under General Settings section. <span class="asset-inline-note">Align To Surface Normal</span> if enabled will spawn set prefabs aligned to the surface you paint over. You can adjust how well it should do so with <span class="asset-inline-note">Normal Alignment</span> slider.</p>
+								You can also set <span class="asset-inline-note">Random Rotation</span> and <span class="asset-inline-note">Random Scale</span> to add more variation to your placed prefabs.</p>
+								<p class="asset-note"> <b>Note:</b> If you're using Perspective Correction, make sure you DO NOT use random rotation to place your grass as it will break the effect. Random scale is fine to use. </p>
+								</br>
+
+								<p><b>Pin</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_pinPreview.png" alt="A+ Grass Placement Tool Pin Preview" /></span>
+								The pin tool is a simple click to place selected prefabs on the chosen surface. There is no additional settings for this tool. However, just like with the brush, you can select multiple prefabs in the palette, which will choose a random out of them with each placement. </p>
+
+								<p><b>Brush</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_brushSettings.png" alt="A+ Grass Placement Tool Brush Settings" /></span>
+								The brush allows you to click drag selected prefabs over the surface quickly and efficiently. 
+								You can adjust <span class="asset-inline-note">Radius</span> to change the size of the brush, <span class="asset-inline-note">Spacing</span> of the prefabs from one another, and <span class="asset-inline-note">Density</span> for how many prefabs will be spawned in the brush area.</p>
+								
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_brushPreview.png" alt="A+ Grass Placement Tool Brush Preview" /></span>
+								When paint over same area, you can prevent overlap of the prefabs by enabling Overlap prevention. <span class="asset-inline-note">Global Overlap</span> will prevent from all prefabs you paint from overlapping. <span class="asset-inline-note">Selected Overlap</span> will prevent only the selected prefabs in the prefabs Palette from overlapping. You can also adjust <span class="asset-inline-note">Overlap Spacing</span> to set the minimum distance between overlapping prefabs.</p>
+								
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_brushEdgePadding.png" alt="A+ Grass Placement Tool Brush Edge Padding" /></span>
+								<span class="asset-inline-note">Edge Padding</span> prevents prefabs being placed too close to the edge of the surface you are painting on. <span class="asset-inline-note">Edge Padding Distance</span> sets the distance from the edge.</p>
+								
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_brushClipping.png" alt="A+ Grass Placement Tool Brush Clipping" /></span>
+								You can make sure that prefabs don't spawn inside your environment by enabling <span class="asset-inline-note">Prevent Clipping</span>. This will prevent prefabs from spawning inside other colliders. Make sure that inside <span class="asset-inline-note">Surface Layers</span> you have excluded the layers of the colliders you want to check against. You can then adjust <span class="asset-inline-note">Clipping Padding</span> to set the distance from the colliders.</p>
+
+								<p><b>Eraser</b></p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_eraserSettings.png" alt="A+ Grass Placement Tool Eraser" /></span>
+								Eraser lets you remove placed prefabs by click and drag in your scene over the painted surfaces. You can adjust  <span class="asset-inline-note">Eraser Radius</span> to change scale of the area covered. </p>
+								<span class="image main asset-banner"><img loading="lazy" src="../../../images/grass/grass_placement_eraserPreview.png" alt="A+ Grass Placement Tool Eraser Preview" /></span>
+								Additionally what you can do is target specific prefabs using  <span class="asset-inline-note">Selected Prefabs Only</span> by selecting prefabs in your palette for which ones you want to be able to erase, rather than everything.</p>
+								
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div data-include="../../../assets/partials/footer.html"></div>
+		</div>
+
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/includes.js"></script>
+		<script src="../../../assets/js/main.js"></script>
+		<script src="../../../assets/js/section-links.js"></script>
+		<script src="../../../assets/js/doc-search.js"></script>
+	</body>
+</html>
