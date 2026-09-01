@@ -1,0 +1,316 @@
+/* Roadmap cards */
+
+.roadmap-card {
+	padding: 1.2em 1.4em;
+	border: solid 1px #c9c9c9;
+	border-radius: 4px;
+	background: #ffffff;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.roadmap-card:hover {
+	border-color: #b0b0b0;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.roadmap-card-header {
+	display: flex;
+	align-items: center;
+	gap: 0.45em;
+	flex-wrap: wrap;
+	margin-bottom: 0.6em;
+}
+
+.roadmap-badge {
+	display: inline-block;
+	padding: 0.22em 0.55em;
+	border-radius: 4px;
+	border: solid 1px transparent;
+	font-size: 0.6em;
+	font-weight: 900;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	line-height: 1.4;
+}
+
+.roadmap-cat-game { background: rgba(174, 133, 202, 0.10); border-color: rgba(174, 133, 202, 0.38); color: #7040a0; }
+.roadmap-cat-asset { background: rgba(126, 202, 246, 0.12); border-color: rgba(126, 202, 246, 0.45); color: #2c87c4; }
+
+.roadmap-status-released { background: rgba(82, 196, 128, 0.10); border-color: rgba(82, 196, 128, 0.38); color: #2e8b57; }
+.roadmap-status-in-development { background: rgba(174, 133, 202, 0.10); border-color: rgba(202, 172, 133, 0.38); color: #a07e40; }
+.roadmap-status-announced { background: rgba(132, 153, 231, 0.10); border-color: rgba(132, 153, 231, 0.38); color: #4255b0; }
+.roadmap-status-planned { background: rgba(144, 144, 144, 0.07); border-color: rgba(144, 144, 144, 0.32); color: #777; }
+
+.roadmap-card-title {
+	margin: 0 0 0.4em;
+	font-size: 1em;
+	font-weight: 900;
+	text-transform: none;
+	letter-spacing: 0.02em;
+	line-height: 1.3;
+}
+
+.roadmap-card-desc {
+	margin: 0 0 0.75em;
+	font-size: 0.9em;
+	line-height: 1.6;
+}
+
+.roadmap-card-desc:last-child {
+	margin-bottom: 0;
+}
+
+.roadmap-card-image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 0.75em;
+	border: 1px solid rgba(201, 201, 201, 0.5);
+	border-radius: 4px;
+	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
+}
+
+.roadmap-card-date {
+	display: inline-block;
+	font-size: 0.72em;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	opacity: 0.55;
+}
+
+.roadmap-card-links {
+	display: flex;
+	gap: 0.5em;
+	flex-wrap: wrap;
+	margin: 0 0 0.75em;
+}
+
+.roadmap-card-link {
+	display: inline-block;
+	padding: 0.3em 0.85em;
+	border: solid 1.5px #585858;
+	border-radius: 4px;
+	background: #ffffff;
+	color: #585858 !important;
+	font-size: 0.72em;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.roadmap-card-link:hover {
+	background: #585858 !important;
+	border-color: #585858 !important;
+	color: #ffffff !important;
+}
+
+body.dark-mode .roadmap-card {
+	background: #22222a;
+	border-color: #575765;
+}
+
+body.dark-mode .roadmap-card:hover {
+	border-color: #7a7a90;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .roadmap-card-link {
+	border-color: #e6e6ea;
+	background: #ffffff;
+	color: #1a1a1f !important;
+}
+
+body.dark-mode .roadmap-card-link:hover {
+	background: #e6e6ea !important;
+	border-color: #e6e6ea !important;
+	color: #1a1a1f !important;
+}
+
+body.dark-mode .roadmap-cat-game { color: #c09ae0; }
+body.dark-mode .roadmap-cat-asset { color: #7ecaf6; }
+body.dark-mode .roadmap-status-released { color: #5cb85c; }
+body.dark-mode .roadmap-status-in-development { color: #f1b533; }
+body.dark-mode .roadmap-status-announced { color: #ffffff; }
+body.dark-mode .roadmap-status-planned { color: #aaa; }
+
+@media screen and (max-width: 736px) {
+	.roadmap-card {
+		padding: 1em 1.1em;
+	}
+}
+
+/* Roadmap filters and timeline */
+
+.roadmap-filters {
+	display: flex;
+	gap: 0.5em;
+	flex-wrap: wrap;
+	margin-bottom: 2.5em;
+}
+
+.roadmap-filter {
+	-webkit-appearance: none;
+	appearance: none;
+	border: solid 1.5px #c9c9c9;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	padding: 0.35em 1.1em;
+	font-family: inherit;
+	font-size: 0.8em;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.roadmap-filter[data-filter="all"]:hover,
+.roadmap-filter[data-filter="all"].is-active {
+	border-color: #585858;
+	color: #585858;
+	background: rgba(88, 88, 88, 0.08);
+}
+
+.roadmap-filter[data-filter="game"]:hover,
+.roadmap-filter[data-filter="game"].is-active {
+	border-color: #ae85ca;
+	color: #7040a0;
+	background: rgba(174, 133, 202, 0.10);
+}
+
+.roadmap-filter[data-filter="asset"]:hover,
+.roadmap-filter[data-filter="asset"].is-active {
+	border-color: #7ecaf6;
+	color: #2c87c4;
+	background: rgba(126, 202, 246, 0.10);
+}
+
+.roadmap-timeline {
+	position: relative;
+	padding-left: 2.25em;
+}
+
+.roadmap-timeline::before {
+	content: '';
+	position: absolute;
+	left: 0.6em;
+	top: 0.5em;
+	bottom: 0.5em;
+	width: 2px;
+	background: #d8d8d8;
+	border-radius: 2px;
+}
+
+.roadmap-phase {
+	position: relative;
+	margin: 0 0 0.75em;
+	padding-left: 0;
+	font-size: 0.72em;
+	font-weight: 900;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	opacity: 0.5;
+}
+
+.roadmap-phase::before {
+	content: '';
+	position: absolute;
+	left: -2.35em;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0.9em;
+	height: 2px;
+	background: currentColor;
+}
+
+.roadmap-entry {
+	position: relative;
+	margin-bottom: 1.25em;
+}
+
+.roadmap-entry.is-hidden {
+	display: none;
+}
+
+.roadmap-dot {
+	position: absolute;
+	left: -1.7em;
+	top: 1.05em;
+	width: 0.75em;
+	height: 0.75em;
+	border-radius: 50%;
+	background: #c9c9c9;
+	border: 2px solid #ffffff;
+	outline: 2px solid #c9c9c9;
+	z-index: 1;
+	transition: background 0.2s ease, outline-color 0.2s ease;
+}
+
+.roadmap-entry[data-category="game"] .roadmap-dot {
+	background: #ae85ca;
+	outline-color: #ae85ca;
+}
+
+.roadmap-entry[data-category="asset"] .roadmap-dot {
+	background: #7ecaf6;
+	outline-color: #7ecaf6;
+}
+
+body.dark-mode .roadmap-timeline::before {
+	background: #3a3a46;
+}
+
+body.dark-mode .roadmap-dot {
+	background: #3a3a46;
+	border-color: #1a1a1f;
+	outline-color: #3a3a46;
+}
+
+body.dark-mode .roadmap-entry[data-category="game"] .roadmap-dot {
+	background: #ae85ca;
+	outline-color: #ae85ca;
+}
+
+body.dark-mode .roadmap-entry[data-category="asset"] .roadmap-dot {
+	background: #7ecaf6;
+	outline-color: #7ecaf6;
+}
+
+body.dark-mode .roadmap-filter[data-filter="all"]:hover,
+body.dark-mode .roadmap-filter[data-filter="all"].is-active {
+	border-color: #e6e6ea;
+	color: #e6e6ea;
+	background: rgba(230, 230, 234, 0.08);
+}
+
+body.dark-mode .roadmap-filter[data-filter="game"]:hover,
+body.dark-mode .roadmap-filter[data-filter="game"].is-active {
+	border-color: #ae85ca;
+	color: #c09ae0;
+	background: rgba(174, 133, 202, 0.12);
+}
+
+body.dark-mode .roadmap-filter[data-filter="asset"]:hover,
+body.dark-mode .roadmap-filter[data-filter="asset"].is-active {
+	border-color: #7ecaf6;
+	color: #7ecaf6;
+	background: rgba(126, 202, 246, 0.10);
+}
+
+body.dark-mode .roadmap-filter {
+	border-color: #575765;
+}
+
+@media screen and (max-width: 736px) {
+	.roadmap-timeline {
+		padding-left: 1.75em;
+	}
+
+	.roadmap-dot {
+		left: -1.35em;
+	}
+}
